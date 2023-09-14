@@ -7,16 +7,9 @@
             <label for="firstname">Prénom</label>
             <input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Prénom">
           </div>
-          <button type="submit" class="btn btn-primary">Se connecter</button>
+          <button type="submit">Se connecter</button>
         </form>
     </div>
 <!-- Liste des clients -->
-<div>
-  <h2>Liste des clients</h2>
-  <ul>
-    <li *ngFor="let client of clients">
-      {{ client.lastname }}, {{ client.firstname }}
-    </li>
-  </ul>
-</div>
 
+<app-navbar *ngIf="loggedIn"></app-navbar>
