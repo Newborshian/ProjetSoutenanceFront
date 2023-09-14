@@ -1,0 +1,22 @@
+<div>
+    <div>
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+            <label for="lastname">Nom</label>
+            <input type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="Nom">
+          <div class="form-group">
+            <label for="firstname">Prénom</label>
+            <input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Prénom">
+          </div>
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+    </div>
+<!-- Liste des clients -->
+<div>
+  <h2>Liste des clients</h2>
+  <ul>
+    <li *ngFor="let client of clients">
+      {{ client.lastname }}, {{ client.firstname }}
+    </li>
+  </ul>
+</div>
+
