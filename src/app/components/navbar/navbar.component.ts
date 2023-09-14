@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     private clientService: ClientService,
     private conseillerService: ConseillerService,
     private router: Router) { }
-5
+
   ngOnInit(): void {
     this.conseillerService.conseiller$.subscribe((res) => {
       this.conseiller = res as Conseiller
