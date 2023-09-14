@@ -1,0 +1,13 @@
+<div>ProxiBanqueSI
+    <button (click)="deconnect()">Deconnexion</button>
+</div>
+<div><button >Liste des Clients</button>
+<button> Simulation de prêt</button></div>
+<div>
+    <h2>Liste des clients</h2>
+    <ul>
+      <li *ngFor="let client of clients">
+        {{ client.lastname }}, {{ client.firstname }}
+      </li>
+    </ul>
+  </div>

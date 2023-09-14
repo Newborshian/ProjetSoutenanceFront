@@ -1,21 +1,24 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { Client } from '../models/Client';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Client } from '../models/client.model';
+import { Conseiller } from '../models/conseiller.model';
+import { ClientService } from './client.service';
+import { ConseillerAuthentification } from '../dtos/conseillerAuthentification.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConseillerService {
 
-  constructor(private http: HttpClient) { }
+  public conseiller$: BehaviorSubject<Conseiller | null> = new BehaviorSubject<Conseiller | null>(null);
 
-  loginFromService(conseiller: FormGroup){
-    return this.http.get('http://localhost:8080/conseiller/login?lastname=' + conseiller.value.lastname + '&firstname=' + conseiller.value.firstname);
-  }
+  constructor(private http: HttpClient, private clientService: ClientService) { }
 
-  getInfoForLoggedFromService(conseiller: FormGroup): Observable<Client[]>{
-    return this.http.get('http://localhost:8080/conseiller/getinfo?lastname=' + conseiller.value.lastname + '&firstname=' + conseiller.value.firstname) as Observable<Client[]>;
+  login(conseiller: Partial<ConseillerAuthentification>){
+    this.http.post<Conseiller>('http://localhost:8080/conseiller/login', conseiller).subscribe((res) => {
+      this.conseiller$.next(res as Conseiller);
+    });
   }
 }

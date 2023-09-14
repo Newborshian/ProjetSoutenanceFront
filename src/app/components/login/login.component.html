@@ -1,15 +1,15 @@
 <div>
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-            <label for="lastname">Nom</label>
-            <input type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="Nom">
+            <label for="mail">Mail</label>
+            <input type="mail" formControlName="mail" class="form-control" id="mail" placeholder="Mail">
           <div class="form-group">
-            <label for="firstname">Prénom</label>
-            <input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Prénom">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
           </div>
           <button type="submit">Se connecter</button>
         </form>
     </div>
-<!-- Liste des clients -->
 
-<app-navbar *ngIf="loggedIn"></app-navbar>
+
+

@@ -1,16 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Client } from '../models/Client';
-import { Observable } from 'rxjs';
+import { Client } from '../models/client.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
+  public clientList$: BehaviorSubject<Client[] | null> = new BehaviorSubject<Client[] | null>(null);
+
   constructor(private http: HttpClient) { }
 
-  getAllClientFromService(): Observable<Client[]>{
-    return this.http.get('http://localhost:8080/client') as Observable<Client[]>
-  };
+  getClientByConseillerId(id: number) {
+    console.log("coucou");5
+    
+    this.http.get('http://localhost:8080/client?id=' + id).subscribe((res) => {
+      console.log(res);
+      
+      this.clientList$.next(res as Client[]);
+    })
+  }
+
 }

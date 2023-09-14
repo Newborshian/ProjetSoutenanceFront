@@ -5,8 +5,6 @@ export interface Client {
     adress: string;
     city: string;
     zipcode: number;
-    phonenumber: string;
-    id_conseiller: number;
-    username: string;
-    password: string;
+    phoneNumber: string;
+    idConseiller: number;
 }
