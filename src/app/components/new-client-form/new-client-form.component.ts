@@ -4,6 +4,8 @@ import { Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client.model';
 import { ClientService } from 'src/app/services/client.service';
+import { ModalNewClientAddComponent } from '../modal-new-client-add/modal-new-client-add.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({
@@ -27,8 +29,28 @@ export class NewClientFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private clientService: ClientService,
-    private router: Router) { }
+    private router: Router,
+    private dialog : MatDialog) { }
  
+    openModal() {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.width = '400px';
+      dialogConfig.height = 'auto'; 
+      dialogConfig.position = {
+        top: '50%', 
+        left: '50%', 
+
+      };
+      dialogConfig.hasBackdrop = true;
+    
+      const dialogRef = this.dialog.open(ModalNewClientAddComponent, dialogConfig);
+    
+      dialogRef.afterClosed().subscribe(result => {
+     
+      });
+    }
+
+
 // Affillier l'id du conseiller actuel
 
   ngOnInit(): void {
@@ -57,6 +79,9 @@ this.clientService.postClient(this.clientForm.value).subscribe(
     // La requête a réussi, vous pouvez gérer la réponse ici
     console.log("Client enregistré avec succès !", response);
     this.router.navigateByUrl('/navbar');
+    alert("client ajouté avec succés");
+    this.openModal();
+  
   },
   (error) => {
     // La requête a échoué, vous pouvez gérer l'erreur ici

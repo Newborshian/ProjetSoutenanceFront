@@ -1,15 +1,35 @@
+*
 .navbar {
-  display: flex; /* Utilisez Flexbox pour aligner les boutons horizontalement */
-  justify-content: space-evenly; /* Espacez les boutons également */
-  align-items: center; /* Centrez verticalement les éléments dans la div */
-}
+    background-color: #03203d; 
+    text-align: center;
+    padding: 10px;
+  }
 
-.navbar button {
-  margin-right: 10px;
-  margin-top: 5px; 
-}
+  .navbar button {
+    background-color: transparent; 
+    color: #fff; 
+    border: none; 
+    margin: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    text-transform: uppercase;
+  }
 
-.addClient {
-  float: right;
-  margin-right: 20px;
-}
+#fonctionnalBar {
+    display: grid; 
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-gap: 10px; 
+  }
+  
+  .add-button {
+    grid-column: 3; 
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+  }

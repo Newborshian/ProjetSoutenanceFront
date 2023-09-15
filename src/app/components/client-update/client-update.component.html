@@ -1,0 +1,48 @@
+<div class="form-card">
+    <div class="action-buttons">
+        <button  type="back" (click)="onBackButton()">Retour</button>
+    </div>
+    <h2>Editer un client</h2>
+    <form [formGroup]="clientUpdateForm">   
+        <div class="form-group">
+            <label for="lastname">Nom de famille</label>
+            <input   pattern="[A-Za-z]+" id="lastname" type="text" formControlName="lastname">
+            <div *ngIf="!clientUpdateForm.get('lastname')?.valid && clientUpdateForm.get('lastname')?.dirty" class="form-error-message">Veuillez entrer un Prenom correct (minimum 3 lettres)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname">Prénom</label>
+            <input id="firstname" type="text" formControlName="firstname">
+            <div *ngIf="!clientUpdateForm.get('firstname')?.valid && clientUpdateForm.get('firstname')?.touched" class="form-error-message">Veuillez entrer un nom correct</div>
+        </div>
+        <div class="form-group">
+            <label for="address">Numéro et rue</label>
+            <input id="address" type="text" formControlName="address">
+            <div *ngIf="!clientUpdateForm.get('address')?.valid && clientUpdateForm.get('address')?.touched" class="form-error-message">Veuillez entrer une adresse correct (ex : 1 rue des fleurs)</div>
+        </div>
+        <div class="form-group">
+            <label for="city">Ville</label>
+            <input id="city" type="text" formControlName="city">
+            <div *ngIf="!clientUpdateForm.get('city')?.valid && clientUpdateForm.get('city')?.touched" class="form-error-message">Veuillez entrer une Ville correct</div>
+        </div>
+        <div class="form-group">
+            <label for="zipcode">Code postal</label>
+            <input id="zipcode" type="text" formControlName="zipcode">
+            <div *ngIf="!clientUpdateForm.get('zipcode')?.valid && clientUpdateForm.get('zipcode')?.touched" class="form-error-message">Veuillez entrer un code postal correct (ex : 75000)</div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Numéro de téléphone</label>
+            <input pattern="\d+" id="phoneNumber" type="text" formControlName="phoneNumber">
+            <div *ngIf="!clientUpdateForm.get('phoneNumber')?.valid && clientUpdateForm.get('phoneNumber')?.touched" class="form-error-message">Veuillez entrer un numéro de téléphone correct</div>
+        </div>
+        <div class="form-group">
+            <label for="idConseiller">Id conseiller</label>
+            <input id="idConseiller" type="text" formControlName="idConseiller">
+            <div *ngIf="!clientUpdateForm.get('idConseiller')?.valid && clientUpdateForm.get('idConseiller')?.touched" class="form-error-message">Veuillez entrer un id correct</div>
+        </div>
+        <div class="action-buttons">
+            <button  [disabled]="clientUpdateForm.invalid"  type="submit" (click)="onSubmitForm()">Enregistrer</button>
+        </div>
+    </form>
+</div>

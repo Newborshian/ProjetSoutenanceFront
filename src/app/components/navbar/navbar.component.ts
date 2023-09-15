@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
 import { Conseiller } from 'src/app/models/conseiller.model';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +23,10 @@ export class NavbarComponent implements OnInit {
   constructor(
     private clientService: ClientService,
     private conseillerService: ConseillerService,
-    private router: Router) { }
+    private router: Router
+   ) { }
+
+
 
   ngOnInit(): void {
     this.conseillerService.conseiller$.subscribe((res) => {
@@ -42,6 +47,7 @@ export class NavbarComponent implements OnInit {
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
+
   searchByOrder(filter: string) {
     switch(filter) {
       case 'croissant': this.clients = this.clientsBuffer; this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;
