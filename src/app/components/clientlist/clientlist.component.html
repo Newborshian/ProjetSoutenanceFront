@@ -1,15 +1,26 @@
+<div><h2> Liste des clients</h2></div>
+<section id="fonctionnalBar">
+  <form>
+    <input type="text" name="searchName" placeholder="veuillez rentrer un nom" ngModel required>
+    <button type="submit">rechercher</button>
+  </form>
+  <div class="filter">
+    <label> 
+      <p>Ordre croissant</p>
+      <input type="radio" name="filter" (click)="searchByOrder('croissant')">
+    </label>
+    <label>
+      <p>Ordre décroissant</p>
+      <input type="radio" name="filter" (click)="searchByOrder('decroissant')">
+    </label>  
+  </div>
+  <div><button class="addClient" [routerLink]="'add'" (click)="onAddNewClient()">Ajouter un nouveau client </button> </div> 
+</section>
 <div>
-    <h2>Liste des clients</h2>
-    <div>
-        <div class="tri"></div>
-        <div class="search"></div>
-        <div class=""><button>Ajouter un client</button></div>
-    </div>
+  <div>
     <ul>
-      <section *ngFor="let client of clients">
-        {{ client.lastname }}, {{ client.firstname }} {{client.city}}
-        <button>Modifier les informations du client</button>
-        <button>Supprimer le client</button>
-      </section>
+      <li *ngFor="let client of clients">
+        {{ client.lastname }}, {{ client.firstname }}
+      </li>
     </ul>
-</div>
+  </div>

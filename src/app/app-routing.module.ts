@@ -4,13 +4,19 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { NewClientFormComponent } from './components/new-client-form/new-client-form.component';
+import { ClientlistComponent } from './components/clientlist/clientlist.component';
+
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'newClient', component: NewClientFormComponent},
+
+  {path: 'listClient', component: ClientlistComponent}
+
   {path: 'updateClient/:id', component: ClientUpdateComponent},
+
 
 
 ];

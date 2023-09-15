@@ -1,12 +1,14 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { ConseillerService } from '../../services/conseiller.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
 import { Conseiller } from 'src/app/models/conseiller.model';
-import { MatDialog } from '@angular/material/dialog';
 
+import { CookieService } from 'ngx-cookie-service';
+
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-navbar',
@@ -15,37 +17,37 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NavbarComponent implements OnInit {
 
+
   @Input() currentClient! : Client;
 
   public clients: Client[] | null = null;
-  public clientsBuffer: Client[] | null = null;
   public conseiller: Conseiller | null = null;
-  clientList = false;
 
+  clientList = false;
+  isLoanSimulation = false;
+  isClientList = false;
   constructor(
     private clientService: ClientService,
     private conseillerService: ConseillerService,
+
+    private router: Router,
+    private cookieService: CookieService) { }
+
     private router: Router
    ) { }
 
 
 
   ngOnInit(): void {
-    this.conseillerService.conseiller$.subscribe((res) => {
-      this.conseiller = res as Conseiller
-      if (this.conseiller) {
-        this.clientService.getClientByConseillerId(this.conseiller.id)
-      }
-      this.clientService.clientList$.subscribe((res) => {
-        this.clients = res;
-      })
-    });
 
   }
   deconnect(){
     this.router.navigate([''])
     location.reload();
   }
+
+}
+
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
@@ -60,3 +62,4 @@ onUpdateClient(clientId: number) {
     }
   }
 }
+

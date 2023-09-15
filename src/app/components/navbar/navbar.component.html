@@ -1,33 +1,9 @@
 
-<div class="navbar"> <button [disabled]="clientList">Liste des Clients</button>
-      <button> Simulation de prêt</button>
+<div class="navbar"> <button [disabled]="clientList" (click)="isClientList = true ; isLoanSimulation = false">Liste des Clients</button>
+      <button (click)="isLoanSimulation = true ; isClientList = false"> Simulation de prêt</button>
 </div>
-<section id="fonctionnalBar">
-  <form class="searchArea">
-    <input type="text" name="searchName" placeholder="veuillez rentrer un nom">
-    <button type="submit">rechercher</button>
-  </form>
-  <div class="filter">
-    <label> 
-      <p>Ordre croissant</p>
-      <input type='radio' name="filter">
-    </label>
-    <label>
-      <p>Ordre décroissant</p>
-      <input type="radio" name="filter">
-    </label> 
-    <button>Appliquer</button> 
-  </div>
-  <div ><button class="add-button" [routerLink]="'add'"  (click)="onAddNewClient()">Ajouter un nouveau client </button> </div> 
-</section>
-<div><h2> Liste des clients</h2></div>
-<div>
-  <div>
-    <ul>
-      <li *ngFor="let client of clients"  > 
-        {{ client.lastname }}, {{ client.firstname }}
-        <button class="update-button"  (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
-        <button>Supprimer le client</button>
-      </li>
-    </ul>
-  </div>
+ <app-loansimulation *ngIf="isLoanSimulation"></app-loansimulation>
+ <app-clientlist *ngIf="isClientList"></app-clientlist>
+
+
+
