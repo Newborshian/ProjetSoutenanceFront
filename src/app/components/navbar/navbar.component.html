@@ -1,12 +1,10 @@
-<div>ProxiBanqueSI
-    <button (click)="deconnect()">Deconnexion</button>
-</div>
-<section id="fonctionnalBar">
-  <a [routerLink]="'add'"  (click)="onAddNewClient()">Ajouter un nouveau client </a>
-
+<section class="navbar">
+  <button >Liste des Clients</button>
+    <button> Simulation de prêt</button>
 </section>
-<div><button >Liste des Clients</button>
-<button> Simulation de prêt</button></div>
+<section id="fonctionnalBar">
+  <button class="add-button" [routerLink]="'add'"  (click)="onAddNewClient()">Ajouter un nouveau client </button>
+</section>
 <div>
     <h2>Liste des clients</h2>
     <ul>
