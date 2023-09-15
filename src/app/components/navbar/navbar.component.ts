@@ -16,7 +16,9 @@ import { MatDialog } from '@angular/material/dialog';
 export class NavbarComponent implements OnInit {
 
   public clients: Client[] | null = null;
+  public clientsBuffer: Client[] | null = null;
   public conseiller: Conseiller | null = null;
+  clientList = false;
 
   constructor(
     private clientService: ClientService,
@@ -38,13 +40,17 @@ export class NavbarComponent implements OnInit {
     });
 
   }
-
   deconnect(){
     this.router.navigate([''])
+    location.reload();
   }
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
 
-  
+  searchByOrder(filter: string) {
+    switch(filter) {
+      case 'croissant': this.clients = this.clientsBuffer; this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;
+    }
+  }
 }

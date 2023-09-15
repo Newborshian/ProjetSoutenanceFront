@@ -31,5 +31,6 @@ export class LoginComponent implements OnInit {
     const conseillerAuth: Partial<ConseillerAuthentification> = conseillerForm.value;
     this.conseillerService.login(conseillerAuth);
     this.router.navigate(['navbar']);
+    
   }
 }

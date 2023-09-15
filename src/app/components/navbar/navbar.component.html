@@ -1,12 +1,28 @@
-<section class="navbar">
-  <button >Liste des Clients</button>
-    <button> Simulation de prêt</button>
-</section>
+
+<div class="navbar"> <button [disabled]="clientList">Liste des Clients</button>
+      <button> Simulation de prêt</button>
+</div>
+<div><h2> Liste des clients</h2></div>
 <section id="fonctionnalBar">
-  <button class="add-button" [routerLink]="'add'"  (click)="onAddNewClient()">Ajouter un nouveau client </button>
+  <form>
+    <input type="text" name="searchName" placeholder="veuillez rentrer un nom">
+    <button type="submit">rechercher</button>
+  </form>
+  <div class="filter">
+    <label> 
+      <p>Ordre croissant</p>
+      <input type='radio' name="filter">
+    </label>
+    <label>
+      <p>Ordre décroissant</p>
+      <input type="radio" name="filter">
+    </label>  
+  </div>
+  <button>rechercher</button>
+  <div><button class="addClient" [routerLink]="'add'"  (click)="onAddNewClient()">Ajouter un nouveau client </button> </div> 
 </section>
 <div>
-    <h2>Liste des clients</h2>
+  <div>
     <ul>
       <li *ngFor="let client of clients">
         {{ client.lastname }}, {{ client.firstname }}
