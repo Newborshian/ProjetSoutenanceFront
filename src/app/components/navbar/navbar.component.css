@@ -1,0 +1,15 @@
+.navbar {
+  display: flex; /* Utilisez Flexbox pour aligner les boutons horizontalement */
+  justify-content: space-evenly; /* Espacez les boutons également */
+  align-items: center; /* Centrez verticalement les éléments dans la div */
+}
+
+.navbar button {
+  margin-right: 10px;
+  margin-top: 5px; 
+}
+
+.addClient {
+  float: right;
+  margin-right: 20px;
+}

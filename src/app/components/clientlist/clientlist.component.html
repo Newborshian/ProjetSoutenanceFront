@@ -1,0 +1,15 @@
+<div>
+    <h2>Liste des clients</h2>
+    <div>
+        <div class="tri"></div>
+        <div class="search"></div>
+        <div class=""><button>Ajouter un client</button></div>
+    </div>
+    <ul>
+      <section *ngFor="let client of clients">
+        {{ client.lastname }}, {{ client.firstname }} {{client.city}}
+        <button>Modifier les informations du client</button>
+        <button>Supprimer le client</button>
+      </section>
+    </ul>
+</div>
