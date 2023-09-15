@@ -37,4 +37,7 @@ export class NavbarComponent implements OnInit {
   deconnect(){
     this.router.navigate([''])
   }
+  onAddNewClient() {
+    this.router.navigateByUrl('newClient');
+  }
 }

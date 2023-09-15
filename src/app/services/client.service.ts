@@ -22,4 +22,10 @@ export class ClientService {
     })
   }
 
+  postClient(client : Client) : Observable<Client[]> {
+    console.log(client);
+    return this.http.post<Client[]>('http://localhost:8080/client', client);
+
+  }
+
 }
