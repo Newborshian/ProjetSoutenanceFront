@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Client } from '../models/client.model';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,8 @@ export class ClientService {
 
   }
 
+  getClientByName(name: NgForm): Observable<Client[]>{
+    let lastname = name.value.lastname;
+    return this.http.get('http//localhost:8080/client/' + lastname) as Observable<Client[]>;
+  }
 }

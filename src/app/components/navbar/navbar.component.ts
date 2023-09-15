@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { ConseillerService } from '../../services/conseiller.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
 import { Conseiller } from 'src/app/models/conseiller.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,38 +14,21 @@ import { Conseiller } from 'src/app/models/conseiller.model';
 })
 export class NavbarComponent implements OnInit {
 
-  public clients: Client[] | null = null;
-  public clientsBuffer: Client[] | null = null;
-  public conseiller: Conseiller | null = null;
-  clientList = false;
 
+  clientList = false;
+  isLoanSimulation = false;
+  isClientList = false;
   constructor(
     private clientService: ClientService,
     private conseillerService: ConseillerService,
-    private router: Router) { }
+    private router: Router,
+    private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.conseillerService.conseiller$.subscribe((res) => {
-      this.conseiller = res as Conseiller
-      if (this.conseiller) {
-        this.clientService.getClientByConseillerId(this.conseiller.id)
-      }
-      this.clientService.clientList$.subscribe((res) => {
-        this.clients = res;
-      })
-    });
 
   }
   deconnect(){
     this.router.navigate([''])
     location.reload();
-  }
-  onAddNewClient() {
-    this.router.navigateByUrl('newClient');
-  }
-  searchByOrder(filter: string) {
-    switch(filter) {
-      case 'croissant': this.clients = this.clientsBuffer; this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;
-    }
   }
 }

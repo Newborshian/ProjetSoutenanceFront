@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewClientFormComponent } from './components/new-client-form/new-client-form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CookieService } from 'ngx-cookie-service';
+import {LoansimulationComponent} from './components/loansimulation/loansimulation.component';
+import { ClientlistComponent } from './components/clientlist/clientlist.component';
 
 
 
@@ -24,7 +27,9 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     NavbarComponent,
     NewClientFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoansimulationComponent,
+    ClientlistComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +41,9 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
