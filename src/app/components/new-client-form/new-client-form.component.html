@@ -1,0 +1,56 @@
+<div class="form-card">
+    <div class="action-buttons">
+        <button  type="back" (click)="onBackButton()">Retour</button>
+    </div>
+    <h2>NOUVEAU CLIENT</h2>
+    <form [formGroup]="clientForm">   
+        <div class="form-group">
+            <label for="lastname">Nom de famille</label>
+            <input   pattern="[A-Za-z]+" id="lastname" type="text" formControlName="lastname">
+            <div *ngIf="!clientForm.get('lastname')?.valid && clientForm.get('lastname')?.dirty" class="form-error-message">Veuillez entrer un Prenom correct (minimum 3 lettres)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname">Prénom</label>
+            <input id="firstname" type="text" formControlName="firstname">
+            <div *ngIf="!clientForm.get('firstname')?.valid && clientForm.get('firstname')?.touched" class="form-error-message">Veuillez entrer un nom correct</div>
+        </div>
+        <div class="form-group">
+            <label for="address">Numéro et rue</label>
+            <input id="address" type="text" formControlName="address">
+            <div *ngIf="!clientForm.get('address')?.valid && clientForm.get('address')?.touched" class="form-error-message">Veuillez entrer une adresse correct (ex : 1 rue des fleurs)</div>
+        </div>
+        <div class="form-group">
+            <label for="city">Ville</label>
+            <input id="city" type="text" formControlName="city">
+            <div *ngIf="!clientForm.get('city')?.valid && clientForm.get('city')?.touched" class="form-error-message">Veuillez entrer une Ville correct</div>
+        </div>
+        <div class="form-group">
+            <label for="zipcode">Code postal</label>
+            <input id="zipcode" type="text" formControlName="zipcode">
+            <div *ngIf="!clientForm.get('zipcode')?.valid && clientForm.get('zipcode')?.touched" class="form-error-message">Veuillez entrer un code postal correct (ex : 75000)</div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Numéro de téléphone</label>
+            <input pattern="\d+" id="phoneNumber" type="text" formControlName="phoneNumber">
+            <div *ngIf="!clientForm.get('phoneNumber')?.valid && clientForm.get('phoneNumber')?.touched" class="form-error-message">Veuillez entrer un numéro de téléphone correct</div>
+        </div>
+        <div class="form-group">
+            <label for="idConseiller">Id conseiller</label>
+            <input id="idConseiller" type="text" formControlName="idConseiller">
+            <div *ngIf="!clientForm.get('idConseiller')?.valid && clientForm.get('idConseiller')?.touched" class="form-error-message">Veuillez entrer un id correc</div>
+        </div>
+        <div class="action-buttons">
+            <button  [disabled]="clientForm.invalid"  type="submit" (click)="onSubmitForm()">Enregistrer</button>
+        </div>
+    </form>
+</div>
+<!-- <div class="new-client-card" *ngIf="newClientPreview$ | async as newClient">
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['lastname'].valid"></div>Nom : {{newClient.lastname | uppercase }}</h2>
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['firstname'].valid"></div>Prénom :{{ newClient.firstname | uppercase }}</h2>
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['address'].valid"></div>Adresse : {{ newClient.address | uppercase }}</h2>
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['city'].valid"></div>Ville{{ newClient.city | uppercase }}</h2>
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['zipcode'].valid"></div>Code Postal{{ newClient.zipcode }}</h2>
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['phoneNumber'].valid"></div>Numéro de téléphone{{ newClient.phoneNumber| uppercase }}</h2>
+    <h2><div class = "invalidInput"*ngIf="clientForm.controls['idConseiller'].valid"></div>Id du conseiller{{ newClient.idConseiller }}</h2> -->
