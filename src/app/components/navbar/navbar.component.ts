@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { ConseillerService } from '../../services/conseiller.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,6 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  @Input() currentClient! : Client;
 
   public clients: Client[] | null = null;
   public clientsBuffer: Client[] | null = null;
@@ -47,6 +49,10 @@ export class NavbarComponent implements OnInit {
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
+// >>>>>>>>>>>>>>>>>> trouver un moyen de recupérer l'id
+onUpdateClient(clientId: number) {
+  this.router.navigateByUrl(`updateClient/${clientId}`);
+}
 
   searchByOrder(filter: string) {
     switch(filter) {
