@@ -29,8 +29,16 @@ export class ClientService {
 
   }
 
-  getClientByName(name: NgForm): Observable<Client[]>{
+    getClientByName(name: NgForm): Observable<Client[]>{
     let lastname = name.value.lastname;
     return this.http.get('http//localhost:8080/client/' + lastname) as Observable<Client[]>;
+
+  updateClient(client : Client) : Observable<Client> {
+    return this.http.put<Client>(`'http://localhost:8080/client'/${client.id}`, client);
+  }
+  
+  getClientById(clientId: number): Observable<Client> {
+    return this.http.get<Client>(`'http://localhost:8080/client'/${clientId}`);
+
   }
 }

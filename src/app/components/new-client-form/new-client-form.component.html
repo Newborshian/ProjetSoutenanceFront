@@ -39,7 +39,7 @@
         <div class="form-group">
             <label for="idConseiller">Id conseiller</label>
             <input id="idConseiller" type="text" formControlName="idConseiller">
-            <div *ngIf="!clientForm.get('idConseiller')?.valid && clientForm.get('idConseiller')?.touched" class="form-error-message">Veuillez entrer un id correc</div>
+            <div *ngIf="!clientForm.get('idConseiller')?.valid && clientForm.get('idConseiller')?.touched" class="form-error-message">Veuillez entrer un id correct</div>
         </div>
         <div class="action-buttons">
             <button  [disabled]="clientForm.invalid"  type="submit" (click)="onSubmitForm()">Enregistrer</button>

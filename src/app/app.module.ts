@@ -15,11 +15,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewClientFormComponent } from './components/new-client-form/new-client-form.component';
 import { HeaderComponent } from './components/header/header.component';
+
 import { CookieService } from 'ngx-cookie-service';
 import {LoansimulationComponent} from './components/loansimulation/loansimulation.component';
 import { ClientlistComponent } from './components/clientlist/clientlist.component';
 
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalNewClientAddComponent } from './components/modal-new-client-add/modal-new-client-add.component';
+import { ClientUpdateComponent } from './components/client-update/client-update.component';
+import { ClientlistComponent } from './components/clientlist/clientlist.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,10 @@ import { ClientlistComponent } from './components/clientlist/clientlist.componen
     HeaderComponent,
     LoansimulationComponent,
     ClientlistComponent
+    ModalNewClientAddComponent,
+    ClientUpdateComponent,
+    ClientlistComponent
+
   ],
   imports: [
     BrowserModule,
@@ -42,6 +51,7 @@ import { ClientlistComponent } from './components/clientlist/clientlist.componen
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
