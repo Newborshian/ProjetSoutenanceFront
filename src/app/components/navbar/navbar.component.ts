@@ -17,7 +17,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NavbarComponent implements OnInit {
 
-
   @Input() currentClient! : Client;
 
   public clients: Client[] | null = null;
@@ -29,14 +28,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private clientService: ClientService,
     private conseillerService: ConseillerService,
-
     private router: Router,
     private cookieService: CookieService) { }
-
-    private router: Router
-   ) { }
-
-
 
   ngOnInit(): void {
 
@@ -45,8 +38,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([''])
     location.reload();
   }
-
-}
 
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
@@ -58,8 +49,10 @@ onUpdateClient(clientId: number) {
 
   searchByOrder(filter: string) {
     switch(filter) {
-      case 'croissant': this.clients = this.clientsBuffer; this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;
+      case 'croissant': this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;
     }
   }
 }
+
+
 
