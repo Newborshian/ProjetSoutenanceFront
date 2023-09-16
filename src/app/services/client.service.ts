@@ -29,10 +29,10 @@ export class ClientService {
   }
 
   updateClient(client : Client) : Observable<Client> {
-    return this.http.put<Client>(`'http://localhost:8080/client'/${client.id}`, client);
+    return this.http.put<Client>(`http://localhost:8080/client/${client.id}`, client);
   }
   
   getClientById(clientId: number): Observable<Client> {
-    return this.http.get<Client>(`'http://localhost:8080/client'/${clientId}`);
+    return this.http.get<Client>(`http://localhost:8080/client/${clientId}`);
   }
 }
