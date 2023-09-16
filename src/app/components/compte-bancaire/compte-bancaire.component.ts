@@ -14,7 +14,7 @@ export class CompteBancaireComponent {
 
   @Input() compteBancaire!: CompteBancaire;
 
- 
+
 
   constructor(private compteBancaireService: CompteBancaireService, private route: Router, private activeroute: ActivatedRoute){}
 
@@ -22,7 +22,8 @@ export class CompteBancaireComponent {
 
   ngOnInit(): void {
 
-    
+   
+
   }
 
   viewMoreInfos(){

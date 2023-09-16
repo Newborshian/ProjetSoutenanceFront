@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { CompteBancaire } from "../models/compte-bancaire-model";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Client } from "../models/client.model";
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +23,11 @@ export class CompteBancaireService {
 
      getCompteEpargneById(compteId: number): Observable<CompteBancaire>{
       return this.http.get<CompteBancaire>(`http://localhost:8080/compteEpargne/${compteId}`)
+   }
+
+   getComptesByIdClient(clientId: number): Observable<CompteBancaire[]>{
+     
+    return this.http.get<CompteBancaire[]>(`http://localhost:8080/compteCourant/comptesByIdClient?id=`+ clientId)
    }
 
 }

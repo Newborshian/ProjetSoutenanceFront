@@ -1,11 +1,11 @@
-export class CompteBancaire {
+export interface CompteBancaire {
 
-    id!: number;
-    numerodecompte!: string;
-    nameClient!: string;
-    typeDeCompte!: string ;
-    overDraft!: number ;
-    tauxInteret!: number ;
-    solde!: number;
+    id: number;
+    numerodecompte: string;
+    nameClient: string;
+    typeDeCompte: string ;
+    overDraft: number ;
+    tauxInteret: number ;
+    solde: number;
     
 }

@@ -12,6 +12,8 @@ import { ConseillerService } from 'src/app/services/conseiller.service';
   styleUrls: ['./clientlist.component.css']
 })
 export class ClientlistComponent implements OnInit {
+
+  public client!: Client;
  
   public clients: Client[] | null = null;
   public conseiller: Conseiller | null = null;
@@ -62,7 +64,7 @@ this.clientService.deleteClientById(clientId).subscribe();
     });
   }
 
-  onViewCompteClient(){
-    this.router.navigateByUrl(`comptesbancaires`)
+  onViewCompteClient(clientId: number){
+    this.router.navigateByUrl(`comptesbancaires/${clientId}`);
   }
 }

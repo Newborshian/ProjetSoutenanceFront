@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'newClient', component: NewClientFormComponent},
   {path: 'listClient', component: ClientlistComponent},
   {path: 'updateClient/:id', component: ClientUpdateComponent},
-  {path: 'comptesbancaires', component: CompteBancaireListComponent},
+  {path: 'comptesbancaires/:id', component: CompteBancaireListComponent},
   {path: 'comptesepargnes/:id', component: ViewMoreCompteEpargneComponent},
   {path: 'comptescourants/:id', component: ViewMoreCompteCourantComponent}
 
