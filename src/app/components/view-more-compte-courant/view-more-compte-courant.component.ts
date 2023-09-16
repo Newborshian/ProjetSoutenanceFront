@@ -25,15 +25,36 @@ export class ViewMoreCompteCourantComponent {
   tauxInteret!: number
   solde!: number
 
+  
+
   ngOnInit(): void {
+
+    
 
     const compteBancaireId = +this.route.snapshot.params['id'];
 
   
     this.compteBancaire$ = this.compteBancaireService.getCompteCourantById(compteBancaireId);
+
+    
     
 
     
   }
+
+ 
+
+ 
+
+  onClickButtonDeleteCompte(idCompte: number, solde: number){
+
+      if(solde === 0){
+    this.compteBancaire$ = this.compteBancaireService.deleteCompteCourant(idCompte)
+      }
+      else {
+        throw new Error('Vous ne pouvez pas supprimer ce compte, solde invalide')
+      }  
+  }
+
 
 }

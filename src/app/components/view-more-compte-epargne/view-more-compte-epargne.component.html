@@ -15,6 +15,6 @@
         <h5 class="tauxInteret">{{compteBancaire.tauxInteret}}</h5>
         <h5 class="solde">{{compteBancaire.solde}}</h5>
         <button class="buttonmaj">Mettre à jour les informations</button>
-        <button class="buttondelete">Supprimer le compte</button>
+        <button class="buttondelete" (click)="onClickButtonDeleteCompte(compteBancaire.id,compteBancaire.solde)">Supprimer le compte</button>
     </article>
 </div>

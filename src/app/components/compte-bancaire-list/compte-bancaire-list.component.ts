@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CompteBancaire } from 'src/app/models/compte-bancaire-model';
 import { CompteBancaireService } from 'src/app/services/comptes-bancaires.service';
@@ -14,18 +14,18 @@ export class CompteBancaireListComponent {
   comptesBancaires$!: Observable<CompteBancaire[]>;
  
 
-  constructor(private compteBancaireService: CompteBancaireService,private route: ActivatedRoute){}
+  constructor(private compteBancaireService: CompteBancaireService,private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void {
 
     const clientId = +this.route.snapshot.params['id']
 
     this.comptesBancaires$ = this.compteBancaireService.getComptesByIdClient(clientId);
+    
+  }
 
-    
-    
-
-    
+  onBackButton(){
+    this.router.navigateByUrl('/navbar')
   }
 
 }

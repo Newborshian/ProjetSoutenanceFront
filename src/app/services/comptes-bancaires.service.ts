@@ -30,4 +30,12 @@ export class CompteBancaireService {
     return this.http.get<CompteBancaire[]>(`http://localhost:8080/compteCourant/comptesByIdClient?id=`+ clientId)
    }
 
+   deleteCompteCourant(compteId: number): Observable<CompteBancaire>{
+      return this.http.delete<CompteBancaire>(`http://localhost:8080/compteCourant/${compteId}`)
+   }
+
+   deleteCompteEpargne(compteId: number): Observable<CompteBancaire>{
+      return this.http.delete<CompteBancaire>(`http://localhost:8080/compteEpargne/${compteId}`)
+   }
+
 }

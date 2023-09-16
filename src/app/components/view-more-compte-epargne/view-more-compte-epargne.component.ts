@@ -35,5 +35,17 @@ export class ViewMoreCompteEpargneComponent {
   
     this.compteBancaire$ = this.compteBancaireService.getCompteEpargneById(compteBancaireId);
 
+   
+
+}
+
+onClickButtonDeleteCompte(idCompte: number, solde: number){
+
+  if(solde === 0){
+this.compteBancaire$ = this.compteBancaireService.deleteCompteEpargne(idCompte)
+  }
+  else {
+    throw new Error('Vous ne pouvez pas supprimer ce compte, solde invalide')
+  }  
 }
 }
