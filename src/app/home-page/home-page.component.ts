@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConseillerService } from '../services/conseiller.service';
 import { Conseiller } from '../models/conseiller.model';
 
@@ -7,12 +7,20 @@ import { Conseiller } from '../models/conseiller.model';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit{
+
+  conseillerLogger : Conseiller | null = null;
 
   constructor(private conseillerService: ConseillerService
    ) { }
 
-   conseillerLogger! : Conseiller;
-
+   ngOnInit(): void {
+    this.conseillerService.conseiller$.subscribe((res) =>{
+      console.log(res);
+      
+      this.conseillerLogger = res;
+    })       
+   }
+  
    
 }

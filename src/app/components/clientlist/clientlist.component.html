@@ -16,14 +16,16 @@
   </div>
   <div><button class="addClient" [routerLink]="'add'" (click)="onAddNewClient()">Ajouter un nouveau client </button> </div> 
 </section>
-<div>
-  <div>
+
+
+  <section class="view-list-of-clients">
     <ul>
-      <li *ngFor="let client of clients">
-        {{ client.lastname }}, {{ client.firstname }}
-        <button class="update-button"  (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
-        <button>Supprimer le client</button>
-        <button (click)="onViewCompteClient()">Voir les comptes</button>
+      <li class="one-client-li" *ngFor="let client of clients">
+        <div class="client-info">{{ client.lastname }}, {{ client.firstname }}</div>
+        <div>Comptes bancaires <button (click)="onViewCompteClient()">Voir les comptes</button></div>
+        <div><button class="update-button"  (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
+        <button>Supprimer le client</button></div>
+        
       </li>
     </ul>
-  </div>
+  </section>
