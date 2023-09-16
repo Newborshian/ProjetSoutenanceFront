@@ -21,10 +21,12 @@
   <section class="view-list-of-clients">
     <ul>
       <li class="one-client-li" *ngFor="let client of clients">
-        <div class="client-info">{{ client.lastname }}, {{ client.firstname }}</div>
+        <div class="client-info">{{ client.lastname }}, {{ client.firstname }}, <br>Id : {{ client.id }}</div>
         <div>Comptes bancaires <button (click)="onViewCompteClient()">Voir les comptes</button></div>
-        <div><button class="update-button"  (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
-        <button>Supprimer le client</button></div>
+        <div>
+        <button class="update-button" (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
+        <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
+      </div>
         
       </li>
     </ul>

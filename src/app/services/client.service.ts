@@ -24,7 +24,6 @@ export class ClientService {
   postClient(client : Client) : Observable<Client[]> {
     console.log(client);
     return this.http.post<Client[]>('http://localhost:8080/client', client);
-
   }
 
     getClientByName(name: NgForm): Observable<Client[]>{
@@ -38,5 +37,9 @@ export class ClientService {
     
     getClientById(clientId: number): Observable<Client> {
       return this.http.get<Client>(`http://localhost:8080/client/${clientId}`);
+    }
+
+    deleteClientById(clientId: number): Observable<Client> {
+      return this.http.delete<Client>(`http://localhost:8080/client/${clientId}`);
     }
 }

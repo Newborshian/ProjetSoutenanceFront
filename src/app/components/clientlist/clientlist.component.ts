@@ -33,6 +33,7 @@ export class ClientlistComponent implements OnInit {
       })
     });
   }
+  
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
@@ -40,6 +41,14 @@ export class ClientlistComponent implements OnInit {
   onUpdateClient(clientId: number) {
     this.router.navigateByUrl(`updateClient/${clientId}`);
   }
+
+  deleteClient(clientId: number){
+    console.log(">>>>>>>>>>>>>>>>> debut du delete :" + clientId)
+this.clientService.deleteClientById(clientId).subscribe();
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé " )
+  // location.reload();
+  };
+
   searchByOrder(filter: string) {
     switch(filter) {
       case 'croissant': this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;

@@ -54,6 +54,8 @@
   .addClient {
     grid-column: 3; 
     background-color: #4caf50;
+    width: 70%;
+    height: auto;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -62,10 +64,35 @@
     font-size: 16px;
     text-transform: uppercase;
   }
+.update-button{
+  background-color:#FDCC92;
+    color:white;
+}
+  .delete-button{
+    background-color: red;
+    color:white;
+  }
 
   .one-client-li{
     display: grid; 
     grid-template-columns: 2fr 3fr 1fr;
     border-radius: 10px;
+    height: auto;
     border-color: #03203d;
+    border: 1px solid black;
+    grid-gap: 10px; 
+    align-items: center; 
+  justify-content: center;
+  padding: 10px;
+  margin: 20px;
+  }
+
+  .view-list-of-clients{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    grid-gap: 20px; 
+    align-items: center; 
+  justify-content: center;
+  border: 1px solid black;
+    
   }
