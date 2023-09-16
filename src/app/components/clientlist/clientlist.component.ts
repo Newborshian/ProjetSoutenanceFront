@@ -36,6 +36,10 @@ export class ClientlistComponent implements OnInit {
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
+
+  onUpdateClient(clientId: number) {
+    this.router.navigateByUrl(`updateClient/${clientId}`);
+  }
   searchByOrder(filter: string) {
     switch(filter) {
       case 'croissant': this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;

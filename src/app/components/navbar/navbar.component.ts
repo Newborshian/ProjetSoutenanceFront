@@ -25,6 +25,8 @@ export class NavbarComponent implements OnInit {
   clientList = false;
   isLoanSimulation = false;
   isClientList = false;
+  isHome = true;
+
   constructor(
     private clientService: ClientService,
     private conseillerService: ConseillerService,
@@ -42,7 +44,7 @@ export class NavbarComponent implements OnInit {
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
   }
-// >>>>>>>>>>>>>>>>>> trouver un moyen de recupérer l'id
+
 onUpdateClient(clientId: number) {
   this.router.navigateByUrl(`updateClient/${clientId}`);
 }
@@ -52,6 +54,7 @@ onUpdateClient(clientId: number) {
       case 'croissant': this.clients = this.clients!.sort(function (a, b) {return a.lastname.localeCompare(b.lastname)}); break;
     }
   }
+
 }
 
 

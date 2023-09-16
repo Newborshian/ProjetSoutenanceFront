@@ -9,9 +9,11 @@ import { ClientUpdateComponent } from './components/client-update/client-update.
 import { CompteBancaireListComponent } from './components/compte-bancaire-list/compte-bancaire-list.component';
 import { ViewMoreCompteEpargneComponent } from './components/view-more-compte-epargne/view-more-compte-epargne.component';
 import { ViewMoreCompteCourantComponent } from './components/view-more-compte-courant/view-more-compte-courant.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path:'home', component: HomePageComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'newClient', component: NewClientFormComponent},
   {path: 'listClient', component: ClientlistComponent},

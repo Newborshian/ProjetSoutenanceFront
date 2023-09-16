@@ -18,7 +18,7 @@ export class NewClientFormComponent implements OnInit {
   clientForm: FormGroup = this.formBuilder.group({
     lastname: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[A-Za-z\s\-]+$/)]],
     firstname: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s\-]+$/)]],
-    address: ['', [Validators.required, Validators.maxLength(25),Validators.pattern(/^\d+\s[a-zA-Z\s]+$/)]],
+    address: ['', [Validators.required, Validators.maxLength(25),Validators.pattern(/^\d+\s[A-Za-zÀ-ÿ\s]+$/)]],
     city: ['', [Validators.required, Validators.maxLength(50),Validators.pattern(/^[A-Za-z\s\-]+$/)]],
     zipcode: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.maxLength(5), Validators.minLength(5)]],
     phoneNumber: ['', [Validators.required, Validators.maxLength(10),Validators.minLength(10),Validators.pattern(/^\d+$/)]],

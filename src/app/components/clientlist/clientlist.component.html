@@ -1,6 +1,6 @@
 <div><h2> Liste des clients</h2></div>
 <section id="fonctionnalBar">
-  <form #name="ngForm">
+  <form #name="ngForm" class="searchArea">
     <input type="text" name="lastname" placeholder="veuillez rentrer un nom" ngModel required>
     <button type="submit" (click)="getClientByName(name)">rechercher</button>
   </form>
@@ -21,7 +21,7 @@
     <ul>
       <li *ngFor="let client of clients">
         {{ client.lastname }}, {{ client.firstname }}
-        <button>Modifier les informations du client</button>
+        <button class="update-button"  (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
         <button>Supprimer le client</button>
         <button (click)="onViewCompteClient()">Voir les comptes</button>
       </li>

@@ -6,7 +6,7 @@
     <form [formGroup]="clientUpdateForm">   
         <div class="form-group">
             <label for="lastname">Nom de famille</label>
-            <input   pattern="[A-Za-z]+" id="lastname" type="text" formControlName="lastname">
+            <input   pattern="[A-Za-z]+" id="lastname" type="text" formControlName="lastname" >
             <div *ngIf="!clientUpdateForm.get('lastname')?.valid && clientUpdateForm.get('lastname')?.dirty" class="form-error-message">Veuillez entrer un Prenom correct (minimum 3 lettres)
             </div>
         </div>

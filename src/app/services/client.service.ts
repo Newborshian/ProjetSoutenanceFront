@@ -31,12 +31,12 @@ export class ClientService {
     let lastname = name.value.lastname;
     return this.http.get('http://localhost:8080/client/name/' + lastname) as Observable<Client[]>;
     }
-  updateClient(client : Client) : Observable<Client> {
-    return this.http.put<Client>(`'http://localhost:8080/client'/${client.id}`, client);
-  }
-  
-  getClientById(clientId: number): Observable<Client> {
-    return this.http.get<Client>(`'http://localhost:8080/client'/${clientId}`);
-
-  }
+    
+    updateClient(client : Client) : Observable<Client> {
+      return this.http.put<Client>(`http://localhost:8080/client/${client.id}`, client);
+    }
+    
+    getClientById(clientId: number): Observable<Client> {
+      return this.http.get<Client>(`http://localhost:8080/client/${clientId}`);
+    }
 }

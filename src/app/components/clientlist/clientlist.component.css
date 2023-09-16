@@ -51,7 +51,7 @@
   border-radius: 5px;
   }
 
-  .add-button {
+  .addClient {
     grid-column: 3; 
     background-color: #4caf50;
     color: #fff;
