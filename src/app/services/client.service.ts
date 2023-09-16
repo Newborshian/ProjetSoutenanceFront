@@ -9,37 +9,38 @@ import { NgForm } from '@angular/forms';
 })
 export class ClientService {
 
-  public clientList$: BehaviorSubject<Client[] | null> = new BehaviorSubject<Client[] | null>(null);
+public clientList$: BehaviorSubject<Client[] | null> = new BehaviorSubject<Client[] | null>(null);
 
-  constructor(private http: HttpClient) { }
+constructor(private http: HttpClient) { }
 
-  getClientByConseillerId(id: number) {
-    this.http.get('http://localhost:8080/client?id=' + id).subscribe((res) => {
-      console.log(res);
+getClientByConseillerId(id: number) {
+  this.http.get('http://localhost:8080/client?id=' + id).subscribe((res) => {
+    console.log(res);
       
-      this.clientList$.next(res as Client[]);
-    })
-  }
+    this.clientList$.next(res as Client[]);
+  })
+}
 
-  postClient(client : Client) : Observable<Client[]> {
-    console.log(client);
-    return this.http.post<Client[]>('http://localhost:8080/client', client);
-  }
+postClient(client : Client) : Observable<Client[]> {
+  console.log(client);
+  return this.http.post<Client[]>('http://localhost:8080/client', client);
+}
 
-    getClientByName(name: NgForm): Observable<Client[]>{
+  getClientByName(name: NgForm): Observable<Client[]>{
     let lastname = name.value.lastname;
     return this.http.get('http://localhost:8080/client/name/' + lastname) as Observable<Client[]>;
-    }
+  }
     
-    updateClient(client : Client) : Observable<Client> {
-      return this.http.put<Client>(`http://localhost:8080/client/${client.id}`, client);
-    }
+  updateClient(client : Client) : Observable<Client> {
+    return this.http.put<Client>(`http://localhost:8080/client/${client.id}`, client);
+  }
     
-    getClientById(clientId: number): Observable<Client> {
-      return this.http.get<Client>(`http://localhost:8080/client/${clientId}`);
-    }
+  getClientById(clientId: number): Observable<Client> {
+    return this.http.get<Client>(`http://localhost:8080/client/${clientId}`);
+  }
 
-    deleteClientById(clientId: number): Observable<Client> {
-      return this.http.delete<Client>(`http://localhost:8080/client/${clientId}`);
-    }
+  deleteClientById(clientId: Client): Observable<Client> {
+    
+    return this.http.delete<Client>('http://localhost:8080/client/' +clientId.id);
+  }
 }

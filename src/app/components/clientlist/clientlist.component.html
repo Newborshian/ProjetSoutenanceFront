@@ -26,10 +26,11 @@
         <div>Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
         <div>
         <button class="update-button" (click)="onUpdateClient(client.id)">Modifier les informations du client</button>
-        <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
+        <button class="delete-button" (click)="deleteClient(client)">Supprimer le client</button>
       </div>
-        
       </li>
+      <div class="delete-success-message" *ngIf="clientDeleted">Client supprimé avec succès.</div>
+      <div class="delete-refused-message" *ngIf="soldeDifferentOf0">Les comptes bancaires du clients ne sont pas vide</div>
     </ul>
   </section>
 

@@ -23,7 +23,7 @@ export class ConseillerService {
       .pipe(
         catchError((error) => {
           console.error('Erreur de connexion', error);
-          return throwError('Erreur de connexion'); // Renvoyer une erreur personnalisée
+          return throwError('Erreur de connexion');
         }),
         tap((res) => {
           this.conseiller$.next(res as Conseiller);
