@@ -26,7 +26,10 @@ export class ClientlistComponent implements OnInit {
         this.clientService.getClientByConseillerId(this.conseiller.id)
       }
       this.clientService.clientList$.subscribe((res) => {
+        console.log(res);
+        
         this.clients = res;
+        console.log(this.clients);
       })
     });
   }

@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  public login = true;
-
   constructor(private router: Router){ }
 
+  get isLoggedIn(): boolean {
+    return localStorage.getItem('login') === 'true';
+  }
+
   logout() {
-    this.login = false;
+    localStorage.removeItem('login'),
     this.router.navigate([''])
    console.log("Deconnexion")
   }

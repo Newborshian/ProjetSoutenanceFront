@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, tap, throwError } from 'rxjs';
 import { Client } from '../models/client.model';
 import { Conseiller } from '../models/conseiller.model';
 import { ClientService } from './client.service';
@@ -18,9 +18,16 @@ export class ConseillerService {
 
   constructor(private http: HttpClient, private clientService: ClientService) { }
 
-  login(conseiller: Partial<ConseillerAuthentification>){
-    this.http.post<Conseiller>('http://localhost:8080/conseiller/login', conseiller).subscribe((res) => {
-      this.conseiller$.next(res as Conseiller);
-    });
+  login(conseiller: Partial<ConseillerAuthentification>) {
+    return this.http.post<Conseiller>('http://localhost:8080/conseiller/login', conseiller)
+      .pipe(
+        catchError((error) => {
+          console.error('Erreur de connexion', error);
+          return throwError('Erreur de connexion'); // Renvoyer une erreur personnalisée
+        }),
+        tap((res) => {
+          this.conseiller$.next(res as Conseiller);
+        })
+      );
   }
 }

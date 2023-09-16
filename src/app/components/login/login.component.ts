@@ -18,19 +18,31 @@ export class LoginComponent implements OnInit {
     mail: ['', Validators.required],
     password: ['', Validators.required]
   });
+  public loginSucess: boolean | undefined;
 
   constructor(private conseillerService: ConseillerService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private cookieService: CookieService
+    private clientService: ClientService
     ) { }
 
   ngOnInit(): void {
+
   }
 
-   login(conseillerForm: FormGroup) {
+  login(conseillerForm: FormGroup) {
     const conseillerAuth: Partial<ConseillerAuthentification> = conseillerForm.value;
-    this.conseillerService.login(conseillerAuth);
-    this.router.navigate(['navbar']);
+    this.conseillerService.login(conseillerAuth).subscribe(
+      (res) => {
+        this.loginSucess = true;
+        localStorage.setItem('login', 'true');
+        this.conseillerService.login(conseillerAuth);
+        this.router.navigate(['navbar']);
+      },
+      (error) => {
+        this.loginSucess = false;
+        console.error('Connexion non valide', error);
+      }
+    );
   }
-}
+}  
