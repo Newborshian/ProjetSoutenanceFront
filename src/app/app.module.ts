@@ -21,6 +21,10 @@ import { ClientlistComponent } from './components/clientlist/clientlist.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalNewClientAddComponent } from './components/modal-new-client-add/modal-new-client-add.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
+import { CompteBancaireComponent } from './components/compte-bancaire/compte-bancaire.component';
+import { CompteBancaireListComponent } from './components/compte-bancaire-list/compte-bancaire-list.component';
+import { ViewMoreCompteCourantComponent } from './components/view-more-compte-courant/view-more-compte-courant.component';
+import { ViewMoreCompteEpargneComponent } from './components/view-more-compte-epargne/view-more-compte-epargne.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { ClientUpdateComponent } from './components/client-update/client-update.
     ClientlistComponent,
     ModalNewClientAddComponent,
     ClientUpdateComponent,
-    ClientlistComponent
+    ClientlistComponent,
+    CompteBancaireComponent,
+    CompteBancaireListComponent,
+    ViewMoreCompteCourantComponent,
+    ViewMoreCompteEpargneComponent
 
   ],
   imports: [

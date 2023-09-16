@@ -1,0 +1,22 @@
+<div class="grid1" *ngIf="compteBancaire$ | async as compteBancaire">
+    <a routerLink="/comptesbancaires">Retour</a>
+    <div class="libelle">
+            <h4 class="LibnumeroDeCompte">Numero de Compte</h4> 
+            <h4 class="LibnameClient">Nom du client</h4>
+            <h4 class="LibtypeDeCompte">Type de Compte</h4>
+            <h4 class="LiboverDraft">Découvert autorisé</h4>
+            <h4 class="LibtauxInteret">Taux d'interêt</h4>
+            <h4 class="Libsolde">Solde</h4>
+    </div>
+    <article class="gridarticle">
+        <h5 class="numeroDeCompte">{{compteBancaire.numerodecompte}}</h5> 
+        <h5 class="nameClient">{{compteBancaire.nameClient}}</h5>
+        <h5 class="typeDeCompte">{{compteBancaire.typeDeCompte}}</h5>
+        <h5 class="overDraft">{{compteBancaire.overDraft}}</h5>
+        <h5 class="tauxInteret">{{compteBancaire.tauxInteret}}</h5>
+        <h5 class="solde">{{compteBancaire.solde}}</h5>
+        <button class="buttonmaj">Mettre à jour les informations</button>
+        <button class="buttondelete">Supprimer le compte</button>
+    </article>
+</div>
+

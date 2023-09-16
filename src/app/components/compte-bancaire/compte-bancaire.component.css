@@ -1,0 +1,48 @@
+.grid1{
+    display: grid;
+    grid-template-rows: 1fr 20px 20px 4fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+.libelle{
+    display: grid;
+    grid-template-columns: repeat(6, 150px);
+    grid-template-rows: 15px;
+    grid-column: 1;
+    grid-row: 3;
+}
+.gridarticle{
+    display: grid;
+    grid-template-columns: repeat(9, 150px);
+    grid-template-rows: 1px;
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.numeroDeCompte{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.typeDeCompte{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.solde{
+    grid-column: 3;
+    grid-row: 2;
+}
+.buttonmaj{
+    grid-column: 5;
+    grid-row: 2;
+}
+.buttondelete{
+    grid-column: 6;
+    grid-row: 2;
+}
+
+.buttoninfos{
+    grid-column: 4;
+    grid-row: 2;
+}

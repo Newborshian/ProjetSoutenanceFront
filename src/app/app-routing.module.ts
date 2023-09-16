@@ -6,6 +6,9 @@ import { NewClientFormComponent } from './components/new-client-form/new-client-
 import { ClientlistComponent } from './components/clientlist/clientlist.component';
 
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
+import { CompteBancaireListComponent } from './components/compte-bancaire-list/compte-bancaire-list.component';
+import { ViewMoreCompteEpargneComponent } from './components/view-more-compte-epargne/view-more-compte-epargne.component';
+import { ViewMoreCompteCourantComponent } from './components/view-more-compte-courant/view-more-compte-courant.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -13,6 +16,9 @@ const routes: Routes = [
   {path: 'newClient', component: NewClientFormComponent},
   {path: 'listClient', component: ClientlistComponent},
   {path: 'updateClient/:id', component: ClientUpdateComponent},
+  {path: 'comptesbancaires', component: CompteBancaireListComponent},
+  {path: 'comptesepargnes/:id', component: ViewMoreCompteEpargneComponent},
+  {path: 'comptescourants/:id', component: ViewMoreCompteCourantComponent}
 
 ];
 

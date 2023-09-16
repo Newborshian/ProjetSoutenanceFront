@@ -21,6 +21,9 @@
     <ul>
       <li *ngFor="let client of clients">
         {{ client.lastname }}, {{ client.firstname }}
+        <button>Modifier les informations du client</button>
+        <button>Supprimer le client</button>
+        <button (click)="onViewCompteClient()">Voir les comptes</button>
       </li>
     </ul>
   </div>

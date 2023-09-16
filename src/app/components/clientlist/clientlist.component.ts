@@ -48,4 +48,8 @@ export class ClientlistComponent implements OnInit {
       this.clients = res;
     });
   }
+
+  onViewCompteClient(){
+    this.router.navigateByUrl(`comptesbancaires`)
+  }
 }
