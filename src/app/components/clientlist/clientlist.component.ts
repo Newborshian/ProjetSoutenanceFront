@@ -40,9 +40,9 @@ export class ClientlistComponent implements OnInit {
     }
   }
 
-  getClientByName(name: NgForm){
+  getClientByName(name: NgForm) {
     this.clientService.getClientByName(name).subscribe((res: Client[]) => {
       this.clients = res;
-    })
+    });
   }
 }

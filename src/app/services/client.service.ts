@@ -14,8 +14,6 @@ export class ClientService {
   constructor(private http: HttpClient) { }
 
   getClientByConseillerId(id: number) {
-    console.log("coucou");5
-    
     this.http.get('http://localhost:8080/client?id=' + id).subscribe((res) => {
       console.log(res);
       
@@ -31,7 +29,7 @@ export class ClientService {
 
     getClientByName(name: NgForm): Observable<Client[]>{
     let lastname = name.value.lastname;
-    return this.http.get('http//localhost:8080/client/' + lastname) as Observable<Client[]>;
+    return this.http.get('http://localhost:8080/client/name/' + lastname) as Observable<Client[]>;
     }
   updateClient(client : Client) : Observable<Client> {
     return this.http.put<Client>(`'http://localhost:8080/client'/${client.id}`, client);

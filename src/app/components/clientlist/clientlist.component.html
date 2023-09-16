@@ -1,8 +1,8 @@
 <div><h2> Liste des clients</h2></div>
 <section id="fonctionnalBar">
-  <form>
-    <input type="text" name="searchName" placeholder="veuillez rentrer un nom" ngModel required>
-    <button type="submit">rechercher</button>
+  <form #name="ngForm">
+    <input type="text" name="lastname" placeholder="veuillez rentrer un nom" ngModel required>
+    <button type="submit" (click)="getClientByName(name)">rechercher</button>
   </form>
   <div class="filter">
     <label> 
