@@ -15,6 +15,22 @@
       <h5 class="tauxInteret">{{compteBancaire.tauxInteret}}</h5>
       <h5 class="solde">{{compteBancaire.solde}}</h5>
       <button class="buttonmaj" (click)="onUpdateCompteCourant(compteBancaire.id)">Mettre à jour les informations</button>
-      <button class="buttondelete" (click)="onClickButtonDeleteCompte(compteBancaire.id, compteBancaire.solde)">Supprimer le compte</button>
+      <button class="buttondelete" (click)="deleteCompte(compteBancaire)">Supprimer le compte</button>
     </article>
+    <div class="delete-success-message" *ngIf="compteDeleted">Compte supprimé avec succès.</div>
+    <div class="delete-refused-message" *ngIf="soldeDifferentOf0">Le compte bancaire n'est pas vide.</div>
   </div>
+
+  <!-- Confirmation de suppression -->
+<div class="confirmation-modal" *ngIf="showDeleteConfirmation">
+  <div class="modal-dialog">
+    <h3 class="modal-title">Confirmer la suppression</h3>
+    <div class="modal-body">
+      Êtes-vous sûr de vouloir supprimer ce compte ?
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="cancelDelete()">Annuler</button>
+      <button class="btn-danger" (click)="confirmDeleteCompte()">Supprimer</button>
+    </div>
+  </div>
+</div>

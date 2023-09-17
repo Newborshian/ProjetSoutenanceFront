@@ -67,40 +67,8 @@ label input {
   text-transform: uppercase;
 }
 
-.update-button {
-  background-color: #FDCC92;
-  color: white;
-}
 
-.delete-button {
-  background-color: red;
-  color: white;
-}
 
-/* Mise en forme des éléments de la liste de clients */
-.one-client-li {
-  display: grid;
-  grid-template-columns: 2fr 3fr 1fr;
-  border-radius: 10px;
-  height: auto;
-  border-color: #03203d;
-  border: 1px solid black;
-  grid-gap: 10px;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  margin: 20px;
-}
-
-/* Mise en forme de la liste de clients */
-.view-list-of-clients {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  grid-gap: 20px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-}
 
 /* Styles des messages de suppression */
 .delete-success-message {
@@ -170,4 +138,99 @@ label input {
 .modal-footer .btn-danger {
   background-color: #dc3545;
   color: #fff;
+}
+/* Styles pour lister les clients*/
+
+.grid-liste-clients{
+    display: grid;
+    grid-template-rows: 50px 50px;
+    grid-template-columns: 1fr;
+
+}
+
+.libelle-client{
+    display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-template-rows: 15px;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.Libid{
+  grid-column: 1;
+  
+}
+
+.Liblastname{
+  grid-column: 2;
+}
+
+.Libfirstname{
+  grid-column: 3;
+}
+
+.Libaddress{
+  grid-column: 4;
+}
+
+.Libcity{
+  grid-column: 5;
+}
+
+.Libzipcode{
+  grid-column: 6;
+}
+
+.LibphoneNumber{
+  grid-column: 7;
+}
+
+.gridclient{
+  display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-template-rows: 15px;
+    grid-column: 1;
+    grid-row: 2;
+    
+
+}
+
+.client-id{
+  grid-column: 1;
+}
+
+.client-lastname{
+  grid-column: 2;
+}
+
+.client-firstname{
+  grid-column: 3;
+}
+
+.client-address{
+  grid-column: 4;
+}
+
+.client-city{
+  grid-column: 5;
+}
+
+.client-zipcode{
+  grid-column: 6;
+}
+
+.client-phoneNumber{
+  grid-column: 7;
+}
+
+.view-compte-button{
+  grid-column: 8;
+}
+
+.update-button{
+  grid-column: 9;
+}
+
+.delete-button{
+  grid-column: 10;
 }

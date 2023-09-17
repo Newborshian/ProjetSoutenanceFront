@@ -27,6 +27,15 @@ export class ViewMoreCompteCourantComponent {
     private router: Router,
     private fb: FormBuilder){}
 
+  showDeleteConfirmation: boolean = false;
+
+  compteToDelete!: CompteBancaire;
+
+  public compteDeleted = false;
+
+  public soldeDifferentOf0 = false;
+
+
  
   numeroDeCompte!: string;
   nameClient!: string;
@@ -51,12 +60,10 @@ export class ViewMoreCompteCourantComponent {
   }
 
   onClickButtonDeleteCompte(idCompte: number, solde: number){
-    if(solde === 0){
+    
     this.compteBancaire$ = this.compteBancaireService.deleteCompteCourant(idCompte)
-    } 
-    else {
-      throw new Error('Vous ne pouvez pas supprimer ce compte, solde invalide')
-    }  
+    this.showDeleteConfirmation = true;
+     
   }
   onUpdateCompteCourant(compteBancaireId: number) {
     if(this.compteCourantUptadeForm.valid)
@@ -64,4 +71,40 @@ export class ViewMoreCompteCourantComponent {
     
     this.router.navigateByUrl(`comptecourantupdate/${compteBancaireId}`);
   }
+
+  deleteCompte(compte: CompteBancaire) {
+    this.compteToDelete = compte;
+    this.showDeleteConfirmation = true;
+  }
+
+  confirmDeleteCompte() {
+   
+    // Vérifiez ici si les comptes bancaires du client sont vides, sinon, affichez un message d'erreur
+    // Si les comptes sont vides, supprimez le client
+    this.compteBancaireService.getCompteCourantById(this.compteToDelete!.id).subscribe((compteCourantSolde) => {
+       
+        if (compteCourantSolde?.solde === 0 || compteCourantSolde?.solde === null) 
+             {
+          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.compteToDelete!.id)
+          this.compteBancaireService.deleteCompteCourant(this.compteToDelete.id).subscribe((data) => {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
+          });
+
+          this.compteDeleted = true;
+        } else {
+          console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
+          this.soldeDifferentOf0 = true;
+        }
+        this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
+      })
+    }
+      
+
+      cancelDelete() {
+        this.showDeleteConfirmation = false;
+      }
+      
+    
+  
+  
 }

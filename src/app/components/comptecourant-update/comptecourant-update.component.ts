@@ -26,6 +26,8 @@ export class ComptecourantUpdateComponent implements OnInit{
     private router: Router,
     private fb: FormBuilder){}
 
+  
+
   ngOnInit(): void {
     const compteBancaireId = +this.route.snapshot.params['id'];
     this.compteBancaire$ = this.compteBancaireService.getCompteCourantById(compteBancaireId);
