@@ -12,20 +12,31 @@ import { CompteBancaireService } from 'src/app/services/comptes-bancaires.servic
 export class CompteBancaireListComponent {
 
   comptesBancaires$!: Observable<CompteBancaire[]>;
- 
+  isFormCompteCourant = false;
+  isFormCompteEpargne = false;
+  clientId: number;
 
-  constructor(private compteBancaireService: CompteBancaireService,private route: ActivatedRoute, private router: Router){}
+  constructor(private compteBancaireService: CompteBancaireService, private route: ActivatedRoute, private router: Router) {
+    this.clientId = +this.route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
-
-    const clientId = +this.route.snapshot.params['id']
-
-    this.comptesBancaires$ = this.compteBancaireService.getComptesByIdClient(clientId);
-    
+    this.comptesBancaires$ = this.compteBancaireService.getComptesByIdClient(this.clientId);
   }
 
-  onBackButton(){
-    this.router.navigateByUrl('/navbar')
+  onFormAddCompteCourant() {
+    this.isFormCompteCourant = true;
+    this.isFormCompteEpargne = false;
+    this.router.navigate(['createcomptecourant', this.clientId]);
   }
 
+  onFormAddCompteEpargne() {
+    this.isFormCompteEpargne = true;
+    this.isFormCompteCourant = false;
+    this.router.navigate(['createcompteepargne', this.clientId]);
+  }
+
+  onBackButton() {
+    this.router.navigateByUrl('/navbar');
+  }
 }

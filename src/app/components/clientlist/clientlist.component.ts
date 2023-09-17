@@ -59,8 +59,8 @@ export class ClientlistComponent implements OnInit {
     this.router.navigateByUrl(`updateClient/${clientId}`);
   }
   confirmDeleteClient() {
-    // Vérifiez ici si les comptes bancaires du client sont vides, sinon, affichez un message d'erreur
-    // Si les comptes sont vides, supprimez le client
+    console.log(this.clientToDelete!.id);
+    
     this.compteBancaireService.getCompteCourantById(this.clientToDelete!.id).subscribe((compteCourantSolde) => {
       this.compteBancaireService.getCompteEpargneById(this.clientToDelete!.id).subscribe((compteEpargneSolde) => {
         if ((compteCourantSolde?.solde === 0 || compteCourantSolde?.solde === null) && 
