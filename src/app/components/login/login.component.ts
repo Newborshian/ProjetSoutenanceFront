@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.loginSucess = true;
         localStorage.setItem('login', 'true');
         this.conseillerService.login(conseillerAuth);
-        this.router.navigate(['navbar']);
+        this.router.navigate(['home']);
       },
       (error) => {
         this.loginSucess = false;

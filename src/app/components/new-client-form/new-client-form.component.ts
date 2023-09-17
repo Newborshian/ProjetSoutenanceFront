@@ -62,7 +62,7 @@ this.clientService.postClient(this.clientForm.value).subscribe(
 }
 
 onBackButton() {
-      this.router.navigateByUrl('/navbar');
+      this.router.navigateByUrl('/listClient');
     }
 
 

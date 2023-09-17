@@ -77,9 +77,6 @@ constructor(private formBuilder: FormBuilder,
     (response) => {
       console.log("Client modifié avec succès !", response);
       this.showConfirmationMessage = true;
-      // this.router.navigateByUrl('/navbar');
-      
-      // alert("client modifié avec succés"+ response);
     },
     (error) => {
       this.showErrorMessage = true;
@@ -89,6 +86,6 @@ constructor(private formBuilder: FormBuilder,
   }
 
   onBackButton() {
-        this.router.navigateByUrl('/navbar');
+        this.router.navigateByUrl('/listClient');
       }
 }
