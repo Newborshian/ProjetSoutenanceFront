@@ -69,12 +69,20 @@ label input {
 
 .update-button {
   background-color: #FDCC92;
-  color: white;
+  color: black;
+  width: 150px;
+  height: fit-content ;
+  margin: 5px;
+  padding: 5px;
 }
 
 .delete-button {
   background-color: red;
-  color: white;
+  color: black;
+  width: 150px;
+  height: fit-content;
+  margin: 5px;
+  padding: 5px;
 }
 
 /* Mise en forme des éléments de la liste de clients */

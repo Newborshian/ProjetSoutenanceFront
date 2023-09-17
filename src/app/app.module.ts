@@ -19,7 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {LoansimulationComponent} from './components/loansimulation/loansimulation.component';
 import { ClientlistComponent } from './components/clientlist/clientlist.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ModalNewClientAddComponent } from './components/modal-new-client-add/modal-new-client-add.component';
+
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
 import { CompteBancaireComponent } from './components/compte-bancaire/compte-bancaire.component';
 import { CompteBancaireListComponent } from './components/compte-bancaire-list/compte-bancaire-list.component';
@@ -39,7 +39,6 @@ import { CompteepargneUpdateComponent } from './components/compteepargne-update/
     HeaderComponent,
     LoansimulationComponent,
     ClientlistComponent,
-    ModalNewClientAddComponent,
     ClientUpdateComponent,
     ClientlistComponent,
     CompteBancaireComponent,

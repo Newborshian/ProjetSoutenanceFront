@@ -47,3 +47,25 @@
         </div>
     </form>
 </div>
+<!-- modale Update OK -->
+<div class="confirmation-modal" *ngIf="showConfirmationMessage">
+    <div class="modal-dialog">
+      <div class="modal-body">
+        Les informations ont bien été mise à jour
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+      </div>
+    </div>
+  </div>
+  <!-- modale Update fail -->
+  <div class="confirmation-modal" *ngIf="showErrorMessage">
+    <div class="modal-dialog">
+      <div class="modal-body">
+       Un Problème est survenue lors de la mise à jour des informations 
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+      </div>
+    </div>
+  </div>
