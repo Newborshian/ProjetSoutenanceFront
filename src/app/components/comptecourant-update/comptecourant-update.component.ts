@@ -21,6 +21,9 @@ export class ComptecourantUpdateComponent implements OnInit{
     tauxInteret: [''],
     solde: ['', Validators.required],
   });
+
+  showConfirmationMessage = false;
+  showErrorMessage = false;
   constructor(private compteBancaireService: CompteBancaireService, 
     private route: ActivatedRoute,
     private router: Router,
@@ -45,14 +48,21 @@ export class ComptecourantUpdateComponent implements OnInit{
       const updatedCompte: CompteBancaire = this.compteCourantUptadeForm.value;
       this.compteBancaireService.updateCompteCourant(updatedCompte).subscribe(
         (res) => {
+          this.showConfirmationMessage = true;
           console.log("Compte mis à jour avec succès", res);
         },
         (error) => {
           console.error("Erreur lors de la mise à jour du compte", error);
+          this.showErrorMessage = true;
         }
       );
     } else {
       console.error("Formulaire invalide. Veuillez corriger les erreurs");
+      this.showErrorMessage = true;
     }
+  }
+
+  onBackButton(){
+    this.router.navigate(['navbar']);
   }
 }
