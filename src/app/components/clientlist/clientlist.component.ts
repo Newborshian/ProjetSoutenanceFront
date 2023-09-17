@@ -21,6 +21,11 @@ export class ClientlistComponent implements OnInit {
  
   public clients: Client[] | null = null;
   public conseiller: Conseiller | null = null;
+  showDeleteConfirmation: boolean = false;
+
+
+  clientToDelete!: Client;
+
   constructor(private conseillerService: ConseillerService
     , private clientService: ClientService,
     private compteBancaireService: CompteBancaireService,
@@ -40,6 +45,11 @@ export class ClientlistComponent implements OnInit {
       })
     });
   }
+
+  deleteClient(client: Client) {
+    this.clientToDelete = client;
+    this.showDeleteConfirmation = true;
+  }
   
   onAddNewClient() {
     this.router.navigateByUrl('newClient');
@@ -48,23 +58,29 @@ export class ClientlistComponent implements OnInit {
   onUpdateClient(clientId: number) {
     this.router.navigateByUrl(`updateClient/${clientId}`);
   }
-
-  deleteClient(client: Client){
-    this.compteBancaireService.getCompteCourantById(client.id).subscribe((compteCourantSolde) => {
-      this.compteBancaireService.getCompteEpargneById(client.id).subscribe((compteEpargneSolde) => {
-        if(compteCourantSolde?.solde === 0 && compteEpargneSolde?.solde === 0 || compteCourantSolde?.solde === null && compteEpargneSolde?.solde === null){
-          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + client.id)
-          this.clientService.deleteClientById(client).subscribe((data) => {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé " )
+  confirmDeleteClient() {
+    // Vérifiez ici si les comptes bancaires du client sont vides, sinon, affichez un message d'erreur
+    // Si les comptes sont vides, supprimez le client
+    this.compteBancaireService.getCompteCourantById(this.clientToDelete!.id).subscribe((compteCourantSolde) => {
+      this.compteBancaireService.getCompteEpargneById(this.clientToDelete!.id).subscribe((compteEpargneSolde) => {
+        if ((compteCourantSolde?.solde === 0 || compteCourantSolde?.solde === null) && 
+            (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null)) {
+          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!.id)
+          this.clientService.deleteClientById(this.clientToDelete).subscribe((data) => {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
           });
-        
+
           this.clientDeleted = true;
-        }else {
-          console.error("Le solde des comptes du client doit être égale à 0 avant de pouvoir être supprimé");
+        } else {
+          console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
           this.soldeDifferentOf0 = true;
         }
+        this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
       })
     })
+  }
+  cancelDelete() {
+    this.showDeleteConfirmation = false;
   }
   searchByOrder(filter: string) {
     switch(filter) {
