@@ -66,7 +66,7 @@ export class ClientlistComponent implements OnInit {
         if ((compteCourantSolde?.solde === 0 || compteCourantSolde?.solde === null) && 
             (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null)) {
           console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!.id)
-          this.clientService.deleteClientById(this.clientToDelete).subscribe((data) => {
+          this.clientService.deleteClientById(this.clientToDelete.id).subscribe((data) => {
             console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
           });
 
