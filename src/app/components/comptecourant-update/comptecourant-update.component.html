@@ -1,0 +1,12 @@
+<form [formGroup]="compteCourantUptadeForm" class="grid2">
+  <div class="form-group">
+    <label for="overDraft">Découvert autorisé</label>
+    <input type="number" id="overDraft" formControlName="overDraft" placeholder="Découvert">
+  </div>
+  <div class="form-group">
+    <label for="solde">Solde</label>
+    <input type="number" id="solde" formControlName="solde" placeholder="Solde">
+  </div>
+  <!-- Bouton pour soumettre le formulaire de mise à jour -->
+  <button class="buttonupdate" (click)="updateCompte()">Mettre à jour</button>
+</form>

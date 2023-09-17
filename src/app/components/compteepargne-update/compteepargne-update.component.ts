@@ -6,12 +6,11 @@ import { CompteBancaire } from 'src/app/models/compte-bancaire-model';
 import { CompteBancaireService } from 'src/app/services/comptes-bancaires.service';
 
 @Component({
-  selector: 'app-view-more-compte-epargne',
-  templateUrl: './view-more-compte-epargne.component.html',
-  styleUrls: ['./view-more-compte-epargne.component.css']
+  selector: 'app-compteepargne-update',
+  templateUrl: './compteepargne-update.component.html',
+  styleUrls: ['./compteepargne-update.component.css']
 })
-export class ViewMoreCompteEpargneComponent implements OnInit{
-   
+export class CompteepargneUpdateComponent implements OnInit{
   compteBancaire$!: Observable<CompteBancaire>;
   compteEpargneUptadeForm: FormGroup = this.fb.group({
     id: [''],
@@ -25,14 +24,6 @@ export class ViewMoreCompteEpargneComponent implements OnInit{
 
   constructor(private compteBancaireService: CompteBancaireService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder){}
 
-  numeroDeCompte!: string
-  nameClient!: string
-  typeDeCompte!: string
-  overDraft!: number
-  tauxInteret!: number
-  solde!: number
-
-  
   ngOnInit(): void {
     const compteBancaireId = +this.route.snapshot.params['id'];
     this.compteBancaire$ = this.compteBancaireService.getCompteEpargneById(compteBancaireId);
@@ -45,19 +36,22 @@ export class ViewMoreCompteEpargneComponent implements OnInit{
         nameClient: compteBancaire.nameClient,
         overDraft: compteBancaire.overDraft
       });
-    });
+    });    
   }
-
-  onClickButtonDeleteCompte(idCompte: number, solde: number){
-  if(solde === 0){
-  this.compteBancaire$ = this.compteBancaireService.deleteCompteEpargne(idCompte)
-  } else {
-      throw new Error('Vous ne pouvez pas supprimer ce compte, solde invalide')
-    }  
-  }
-  onUpdateCompteEpargne(compteBancaireId: number) {
-    console.log(compteBancaireId);
-    
-    this.router.navigateByUrl(`compteepargneupdate/${compteBancaireId}`);
+  updateCompte() {
+    if (this.compteEpargneUptadeForm.valid) {
+      const updatedCompte: CompteBancaire = this.compteEpargneUptadeForm.value;
+      this.compteBancaireService.updateCompteEpargne(updatedCompte).subscribe(
+        (res) => {
+          console.log("Compte mis à jour avec succès", res);
+        },
+        (error) => {
+          console.error("Erreur lors de la mise à jour du compte", error);
+        }
+      );
+    } else {
+      console.error("Formulaire invalide. Veuillez corriger les erreurs");
+    }
   }
 }
+

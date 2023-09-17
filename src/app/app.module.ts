@@ -26,6 +26,9 @@ import { CompteBancaireListComponent } from './components/compte-bancaire-list/c
 import { ViewMoreCompteCourantComponent } from './components/view-more-compte-courant/view-more-compte-courant.component';
 import { ViewMoreCompteEpargneComponent } from './components/view-more-compte-epargne/view-more-compte-epargne.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ComptecourantUpdateComponent } from './components/comptecourant-update/comptecourant-update.component';
+import { CompteepargneUpdateComponent } from './components/compteepargne-update/compteepargne-update.component';
+
 
 @NgModule({
   declarations: [
@@ -43,8 +46,10 @@ import { HomePageComponent } from './home-page/home-page.component';
     CompteBancaireListComponent,
     ViewMoreCompteCourantComponent,
     ViewMoreCompteEpargneComponent,
-    HomePageComponent
-
+    HomePageComponent,
+    ComptecourantUpdateComponent,
+    CompteepargneUpdateComponent,
+  
   ],
   imports: [
     BrowserModule,

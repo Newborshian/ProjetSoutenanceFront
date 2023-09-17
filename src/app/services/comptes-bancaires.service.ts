@@ -38,4 +38,11 @@ export class CompteBancaireService {
       return this.http.delete<CompteBancaire>(`http://localhost:8080/compteEpargne/${compteId}`)
    }
 
+   updateCompteCourant(compteBancaire: CompteBancaire){
+      return this.http.put('http://localhost:8080/compteCourant/' + compteBancaire.id, compteBancaire)
+   }
+
+   updateCompteEpargne(compteBancaire: CompteBancaire){
+      return this.http.put('http://localhost:8080/compteEpargne/' + compteBancaire.id, compteBancaire)
+   }
 }

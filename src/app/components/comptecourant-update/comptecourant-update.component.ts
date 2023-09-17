@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -6,12 +6,11 @@ import { CompteBancaire } from 'src/app/models/compte-bancaire-model';
 import { CompteBancaireService } from 'src/app/services/comptes-bancaires.service';
 
 @Component({
-  selector: 'app-view-more-compte-courant',
-  templateUrl: './view-more-compte-courant.component.html',
-  styleUrls: ['./view-more-compte-courant.component.css']
+  selector: 'app-comptecourant-update',
+  templateUrl: './comptecourant-update.component.html',
+  styleUrls: ['./comptecourant-update.component.css']
 })
-export class ViewMoreCompteCourantComponent {
-
+export class ComptecourantUpdateComponent implements OnInit{
   compteBancaire$!: Observable<CompteBancaire>;
   compteCourantUptadeForm: FormGroup = this.fb.group({
     id: [''],
@@ -27,14 +26,6 @@ export class ViewMoreCompteCourantComponent {
     private router: Router,
     private fb: FormBuilder){}
 
- 
-  numeroDeCompte!: string;
-  nameClient!: string;
-  typeDeCompte!: string;
-  overDraft!: number;
-  tauxInteret!: number;
-  solde!: number;
-  
   ngOnInit(): void {
     const compteBancaireId = +this.route.snapshot.params['id'];
     this.compteBancaire$ = this.compteBancaireService.getCompteCourantById(compteBancaireId);
@@ -47,21 +38,21 @@ export class ViewMoreCompteCourantComponent {
         nameClient: compteBancaire.nameClient,
         tauxInteret: compteBancaire.tauxInteret
       });
-    });
+    });      
   }
-
-  onClickButtonDeleteCompte(idCompte: number, solde: number){
-    if(solde === 0){
-    this.compteBancaire$ = this.compteBancaireService.deleteCompteCourant(idCompte)
-    } 
-    else {
-      throw new Error('Vous ne pouvez pas supprimer ce compte, solde invalide')
-    }  
-  }
-  onUpdateCompteCourant(compteBancaireId: number) {
-    if(this.compteCourantUptadeForm.valid)
-    console.log(compteBancaireId);
-    
-    this.router.navigateByUrl(`comptecourantupdate/${compteBancaireId}`);
+  updateCompte() {
+    if (this.compteCourantUptadeForm.valid) {
+      const updatedCompte: CompteBancaire = this.compteCourantUptadeForm.value;
+      this.compteBancaireService.updateCompteCourant(updatedCompte).subscribe(
+        (res) => {
+          console.log("Compte mis à jour avec succès", res);
+        },
+        (error) => {
+          console.error("Erreur lors de la mise à jour du compte", error);
+        }
+      );
+    } else {
+      console.error("Formulaire invalide. Veuillez corriger les erreurs");
+    }
   }
 }

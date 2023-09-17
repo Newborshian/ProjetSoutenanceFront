@@ -1,7 +1,7 @@
 export interface CompteBancaire {
 
     id: number;
-    numerodecompte: string;
+    numerodecompte: number;
     nameClient: string;
     typeDeCompte: string ;
     overDraft: number ;
