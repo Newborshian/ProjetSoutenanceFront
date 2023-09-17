@@ -3,6 +3,7 @@ import { CompteBancaire } from "../models/compte-bancaire-model";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Client } from "../models/client.model";
+import { BanckAccountDto } from "../dtos/BanckAccountDto";
 
 @Injectable({
     providedIn: 'root'
@@ -18,11 +19,11 @@ export class CompteBancaireService {
      }
 
      getCompteCourantById(compteId: number): Observable<CompteBancaire>{
-        return this.http.get<CompteBancaire>(`http://localhost:8080/compteCourant/${compteId}`)
+        return this.http.get<CompteBancaire>(`http://localhost:8080/compteEpargne/` + compteId)
      }
 
      getCompteEpargneById(compteId: number): Observable<CompteBancaire>{
-      return this.http.get<CompteBancaire>(`http://localhost:8080/compteEpargne/${compteId}`)
+      return this.http.get<CompteBancaire>(`http://localhost:8080/compteCourant/` + compteId)
    }
 
    getComptesByIdClient(clientId: number): Observable<CompteBancaire[]>{
@@ -44,5 +45,13 @@ export class CompteBancaireService {
 
    updateCompteEpargne(compteBancaire: CompteBancaire){
       return this.http.put('http://localhost:8080/compteEpargne/' + compteBancaire.id, compteBancaire)
+   }
+
+   createCompteCourant(compteBancaire: BanckAccountDto){
+      return this.http.post('http://localhost:8080/compteCourant/', compteBancaire)
+   }
+
+   createCompteEpargne(compteBancaire: BanckAccountDto){
+      return this.http.post('http://localhost:8080/compteEpargne/'+ compteBancaire.id_client, compteBancaire)
    }
 }

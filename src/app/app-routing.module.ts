@@ -11,6 +11,8 @@ import { ViewMoreCompteCourantComponent } from './components/view-more-compte-co
 import { HomePageComponent } from './home-page/home-page.component';
 import { ComptecourantUpdateComponent } from './components/comptecourant-update/comptecourant-update.component';
 import { CompteepargneUpdateComponent } from './components/compteepargne-update/compteepargne-update.component';
+import { NewcomptecourantComponent } from './components/newcomptecourant/newcomptecourant.component';
+import { NewcompteepargneComponent } from './components/newcompteepargne/newcompteepargne.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path: 'comptesepargnes/:id', component: ViewMoreCompteEpargneComponent},
   {path: 'comptescourants/:id', component: ViewMoreCompteCourantComponent},
   {path: 'comptecourantupdate/:id', component: ComptecourantUpdateComponent},
-  {path: 'compteepargneupdate/:id', component: CompteepargneUpdateComponent}
+  {path: 'compteepargneupdate/:id', component: CompteepargneUpdateComponent},
+  {path: 'createcomptecourant/:id', component: NewcomptecourantComponent},
+  {path: 'createcompteepargne/:id', component: NewcompteepargneComponent}
 ];
 
 @NgModule({

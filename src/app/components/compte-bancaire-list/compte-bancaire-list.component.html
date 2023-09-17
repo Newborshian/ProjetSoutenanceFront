@@ -1,3 +1,5 @@
 <button (click)="onBackButton()">Retour</button>
-<button class="buttonadd">Ajouter un compte</button>
+<button class="buttonadd" (click)="onFormAddCompteCourant()">Ajouter un compte courant</button>
+<button class="buttonadd" (click)="onFormAddCompteEpargne()">Ajouter un compte épargne</button>
+
 <app-compte-bancaire *ngFor="let comptebancaire of comptesBancaires$ | async" [compteBancaire]="comptebancaire"></app-compte-bancaire>

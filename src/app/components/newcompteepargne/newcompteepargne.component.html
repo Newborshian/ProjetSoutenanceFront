@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Créer un Compte Épargne</h2>
+    <form [formGroup]="compteEpargneCreateForm" (ngSubmit)="addCompteEpargne(compteEpargneCreateForm)">
+      <div class="form-group">
+        <label for="numerodecompte">Numéro de Compte</label>
+        <input type="text" formControlName="numerodecompte" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="createdat">Date de création :</label>
+        <input type="text" id="createdat" formControlName="createdat" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="tauxInteret">Taux d'Intérêt</label>
+        <input type="text" formControlName="tauxInteret" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="solde">Solde</label>
+        <input type="text" formControlName="solde" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer Compte Épargne</button>
+    </form>
+  </div>
+  <div class="confirmation-modal" *ngIf="infoCreated">
+    <div class="modal-dialog">
+      <div class="modal-body">
+        Le compte courant a bien été créé.
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" [routerLink]="'/navbar'">Suivant</button>
+      </div>
+    </div>
+  </div>
+    <!-- Message d'erreur -->
+  <div class="confirmation-modal" *ngIf="errorCreated">
+    <div class="modal-dialog">
+      <div class="modal-body">
+        Un problème est survenu lors de la création du compte.
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" [routerLink]="'/navbar'">Suivant</button>
+      </div>
+    </div>
+  </div>
+    
+  

@@ -28,6 +28,8 @@ import { ViewMoreCompteEpargneComponent } from './components/view-more-compte-ep
 import { HomePageComponent } from './home-page/home-page.component';
 import { ComptecourantUpdateComponent } from './components/comptecourant-update/comptecourant-update.component';
 import { CompteepargneUpdateComponent } from './components/compteepargne-update/compteepargne-update.component';
+import { NewcomptecourantComponent } from './components/newcomptecourant/newcomptecourant.component';
+import { NewcompteepargneComponent } from './components/newcompteepargne/newcompteepargne.component';
 
 
 @NgModule({
@@ -49,6 +51,8 @@ import { CompteepargneUpdateComponent } from './components/compteepargne-update/
     HomePageComponent,
     ComptecourantUpdateComponent,
     CompteepargneUpdateComponent,
+    NewcomptecourantComponent,
+    NewcompteepargneComponent,
   
   ],
   imports: [
