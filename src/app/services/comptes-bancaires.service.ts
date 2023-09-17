@@ -19,11 +19,11 @@ export class CompteBancaireService {
      }
 
      getCompteCourantById(compteId: number): Observable<CompteBancaire>{
-        return this.http.get<CompteBancaire>(`http://localhost:8080/compteEpargne/` + compteId)
+        return this.http.get<CompteBancaire>(`http://localhost:8080/compteCourant/` + compteId)
      }
 
      getCompteEpargneById(compteId: number): Observable<CompteBancaire>{
-      return this.http.get<CompteBancaire>(`http://localhost:8080/compteCourant/` + compteId)
+      return this.http.get<CompteBancaire>(`http://localhost:8080/compteEpargne/` + compteId)
    }
 
    getComptesByIdClient(clientId: number): Observable<CompteBancaire[]>{
