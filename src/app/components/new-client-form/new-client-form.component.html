@@ -46,11 +46,25 @@
         </div>
     </form>
 </div>
-<!-- <div class="new-client-card" *ngIf="newClientPreview$ | async as newClient">
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['lastname'].valid"></div>Nom : {{newClient.lastname | uppercase }}</h2>
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['firstname'].valid"></div>Prénom :{{ newClient.firstname | uppercase }}</h2>
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['address'].valid"></div>Adresse : {{ newClient.address | uppercase }}</h2>
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['city'].valid"></div>Ville{{ newClient.city | uppercase }}</h2>
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['zipcode'].valid"></div>Code Postal{{ newClient.zipcode }}</h2>
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['phoneNumber'].valid"></div>Numéro de téléphone{{ newClient.phoneNumber| uppercase }}</h2>
-    <h2><div class = "invalidInput"*ngIf="clientForm.controls['idConseiller'].valid"></div>Id du conseiller{{ newClient.idConseiller }}</h2> -->
+<!-- modale Update OK -->
+<div class="confirmation-modal" *ngIf="showConfirmationMessage">
+    <div class="modal-dialog">
+      <div class="modal-body">
+        Les informations ont bien été mise à jour
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+      </div>
+    </div>
+  </div>
+  <!-- modale Update fail -->
+  <div class="confirmation-modal" *ngIf="showErrorMessage">
+    <div class="modal-dialog">
+      <div class="modal-body">
+       Un Problème est survenue lors de la mise à jour des informations 
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+      </div>
+    </div>
+  </div>

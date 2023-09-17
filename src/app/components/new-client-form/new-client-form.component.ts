@@ -4,7 +4,7 @@ import { Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client.model';
 import { ClientService } from 'src/app/services/client.service';
-import { ModalNewClientAddComponent } from '../modal-new-client-add/modal-new-client-add.component';
+
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
@@ -24,48 +24,20 @@ export class NewClientFormComponent implements OnInit {
     phoneNumber: ['', [Validators.required, Validators.maxLength(10),Validators.minLength(10),Validators.pattern(/^\d+$/)]],
     idConseiller: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.minLength(1),Validators.maxLength(2)]],
   });
-  
+
+  showConfirmationMessage = false;
+showErrorMessage = false;
   newClientPreview$! : Observable<Client>;
 
   constructor(private formBuilder: FormBuilder,
     private clientService: ClientService,
     private router: Router,
-    private dialog : MatDialog) { }
- 
-    openModal() {
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.width = '400px';
-      dialogConfig.height = 'auto'; 
-      dialogConfig.position = {
-        top: '50%', 
-        left: '50%', 
-
-      };
-      dialogConfig.hasBackdrop = true;
-    
-      const dialogRef = this.dialog.open(ModalNewClientAddComponent, dialogConfig);
-    
-      dialogRef.afterClosed().subscribe(result => {
-     
-      });
-    }
+    ) { }
 
 
 // Affillier l'id du conseiller actuel
 
   ngOnInit(): void {
-    // this.clientForm = this.formBuilder.group({
-    //   lastname: ['', [Validators.required, Validators.minLength(3)]],
-    //   firstname: ['', [Validators.required, Validators.maxLength(20)]],
-    //   address: ['', [Validators.required, Validators.maxLength(25)]],
-    //   city: ['', [Validators.required, Validators.maxLength(50)]],
-    //   zipcode: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.maxLength(5), Validators.minLength(5)]],
-    //   phoneNumber: ['', [Validators.required, Validators.maxLength(10),Validators.minLength(10)]],
-    //   idConseiller: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.minLength(1),Validators.maxLength(2)]],
-    // }, {
-    //   updateOn: 'blur',
-    // });
-
     this.newClientPreview$ = this.clientForm.valueChanges.pipe(
       map(formValue => ({
           ...formValue,
@@ -78,13 +50,12 @@ this.clientService.postClient(this.clientForm.value).subscribe(
   (response) => {
     // La requête a réussi, vous pouvez gérer la réponse ici
     console.log("Client enregistré avec succès !", response);
-    this.router.navigateByUrl('/navbar');
-    alert("client ajouté avec succés");
-    this.openModal();
+    this.showConfirmationMessage = true;
   
   },
   (error) => {
     // La requête a échoué, vous pouvez gérer l'erreur ici
+    this.showErrorMessage = true;
     console.error("Erreur lors de l'enregistrement du client :", error);
   }
 );

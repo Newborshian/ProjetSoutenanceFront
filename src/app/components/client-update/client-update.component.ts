@@ -14,6 +14,8 @@ export class ClientUpdateComponent implements OnInit{
 clientId!: number;
 currentClient!: Client ;
 updatedClient!: Client;
+showConfirmationMessage = false;
+showErrorMessage = false;
 
 clientUpdateForm: FormGroup = this.formBuilder.group({
   lastname: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[A-Za-z\s\-]+$/)]],
@@ -74,10 +76,13 @@ constructor(private formBuilder: FormBuilder,
       this.clientService.updateClient(this.updatedClient).subscribe(
     (response) => {
       console.log("Client modifié avec succès !", response);
-      this.router.navigateByUrl('/navbar');
-      alert("client modifié avec succés"+ response);
+      this.showConfirmationMessage = true;
+      // this.router.navigateByUrl('/navbar');
+      
+      // alert("client modifié avec succés"+ response);
     },
     (error) => {
+      this.showErrorMessage = true;
       console.error("Erreur lors de l'enregistrement du client :", error);
     }
   );
