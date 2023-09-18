@@ -37,10 +37,15 @@
         <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
         <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
       </div>
-
+      <div class="delete-success-message" *ngIf="clientDeleted" [ngClass]="{'success': clientDeleted}">
+        Client supprimé avec succès.
+      </div>
+      
+      <div class="delete-refused-message" *ngIf="soldeDifferentOf0" [ngClass]="{'error': soldeDifferentOf0}">
+        Les comptes bancaires du client ne sont pas vides.
+      </div>
+      
     </li>
-    <div class="delete-success-message" *ngIf="clientDeleted">Client supprimé avec succès.</div>
-    <div class="delete-refused-message" *ngIf="soldeDifferentOf0">Les comptes bancaires du client ne sont pas vides.</div>
   </ul>
 </section>
 
