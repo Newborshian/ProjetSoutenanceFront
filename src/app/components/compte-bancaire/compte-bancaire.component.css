@@ -13,9 +13,16 @@
   .gridcontenaire h4,
   .gridcontenaire h5 {
     margin: 4px;
-    font-weight: bold;
-    font-weight: lighter;
+
   }
+
+  .gridcontenaire h4{
+    font-weight: bold;
+}
+
+.gridcontenaire h5{
+    font-weight: lighter;
+}
   
   /* Styles spécifiques pour chaque élément */
   .numeroDeCompte {

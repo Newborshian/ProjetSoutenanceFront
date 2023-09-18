@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CompteBancaire } from 'src/app/models/compte-bancaire-model';
 import { CompteBancaireService } from 'src/app/services/comptes-bancaires.service';
@@ -100,5 +100,13 @@ export class ViewMoreCompteEpargneComponent implements OnInit{
 
       cancelDelete() {
         this.showDeleteConfirmation = false;
+      }
+
+      onBackButton() {
+        // Recupération de l'id en param URL
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const id = params.get('id');
+      this.router.navigateByUrl(`/comptesbancaires/${id}`);
+    });
       }
 }

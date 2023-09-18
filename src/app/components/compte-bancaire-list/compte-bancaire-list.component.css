@@ -1,22 +1,21 @@
 /* Styles pour la section button-bar-CB-list */
 .button-bar-CB-list {
     display: flex;
-    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si l'espace est insuffisant */
-    justify-content: flex-start; /* Centre les boutons horizontalement */
+    flex-wrap: wrap;
+    justify-content: flex-start; 
     padding: 10px;
-    margin-bottom: 20px;
+    
   }
   
   .button-bar-CB-list button {
-    background-color: #20B2AA;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
     font-size: 16px;
     text-transform: uppercase;
     border-radius: 5px;
-    margin: 5px; /* Espacement uniforme autour des boutons */
+    margin: 5px; 
   }
 
   /* Style pour le bouton "Retour" en bleu */
@@ -33,7 +32,7 @@
   
   /* Styles pour la liste de comptes bancaires */
   .comptes-bancaires-list {
-    height: 20px; /* Vous pouvez ajuster la hauteur selon vos besoins */
+    height: 20px; 
     grid-gap: 10px;
     align-items: center;
     justify-content: center;
