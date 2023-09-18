@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.button-bar-CB-list button {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 5px; /* Espacement uniforme autour des boutons */
+  }
+  
+  /* Style pour le bouton "Retour" en bleu */
+  .button-bar-CB-list .btn-back {
+    background-color: #007bff;
+    color: #fff;
+  }
