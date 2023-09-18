@@ -1,7 +1,7 @@
 .comptes-bancaires-list {
     /* border: 1px solid #03203d; 
     border-radius: 10px; */
-    height: auto;
+    height: 20px;
     grid-gap: 10px;
     align-items: center;
     justify-content: center;

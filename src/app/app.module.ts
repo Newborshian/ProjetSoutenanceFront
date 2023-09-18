@@ -29,7 +29,7 @@ import { ComptecourantUpdateComponent } from './components/comptecourant-update/
 import { CompteepargneUpdateComponent } from './components/compteepargne-update/compteepargne-update.component';
 import { NewcomptecourantComponent } from './components/newcomptecourant/newcomptecourant.component';
 import { NewcompteepargneComponent } from './components/newcompteepargne/newcompteepargne.component';
-import { DisplayAreaComponent } from './display-area/display-area.component';
+
 
 
 @NgModule({
@@ -51,7 +51,7 @@ import { DisplayAreaComponent } from './display-area/display-area.component';
     CompteepargneUpdateComponent,
     NewcomptecourantComponent,
     NewcompteepargneComponent,
-    DisplayAreaComponent,
+
   
   ],
   imports: [

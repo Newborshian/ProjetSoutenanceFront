@@ -4,23 +4,40 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     border: 1px solid #03203d; 
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     margin: 10px;
+
+}
+
+.gridcontenaire h4,
+.gridcontenaire h5 {
+  margin: 4px;
+}
+
+.gridcontenaire h4{
+    font-weight: bold;
+}
+
+.gridcontenaire h5{
+    font-weight: lighter;
 }
 
 .numeroDeCompte{
     grid-column: 1;
     grid-row: 2;
+
 }
 
 .typeDeCompte{
     grid-column: 2;
     grid-row: 2;
+ 
 }
 
 .solde{
     grid-column: 3;
     grid-row: 2;
+
 }
 /* .buttonmaj{
     grid-column: 5;
