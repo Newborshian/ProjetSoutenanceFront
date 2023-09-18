@@ -1,58 +1,58 @@
 <div><h2>Liste des clients</h2></div>
 <section id="fonctionnalBar">
-  <form #name="ngForm" class="searchArea">
-    <input type="text" name="lastname" placeholder="Veuillez rentrer un nom" ngModel required>
-    <button type="submit" (click)="getClientByName(name)">Rechercher</button>
-  </form>
-  <div class="filter">
-    <label> 
-      <p>Ordre A-Z</p>
-      <input type="radio" name="filter" (click)="searchByOrder('croissant')">
-    </label>
-    <label>
-      <p>Ordre Z-A</p>
-      <input type="radio" name="filter" (click)="searchByOrder('decroissant')">
-    </label>  
-  </div>
-  <div><button class="addClient" [routerLink]="'add'" (click)="onAddNewClient()">Ajouter un nouveau client</button></div> 
+<form #name="ngForm" class="searchArea">
+  <input type="text" name="lastname" placeholder="Veuillez rentrer un nom" ngModel required>
+  <button type="submit" (click)="getClientByName(name)">Rechercher</button>
+</form>
+<div class="filter">
+  <label> 
+    <p>Ordre A-Z</p>
+    <input type="radio" name="filter" (click)="searchByOrder('croissant')">
+  </label>
+  <label>
+    <p>Ordre Z-A</p>
+    <input type="radio" name="filter" (click)="searchByOrder('decroissant')">
+  </label>  
+</div>
+<div><button class="addClient" [routerLink]="'add'" (click)="onAddNewClient()">Ajouter un nouveau client</button></div> 
 </section>
 
 <section class="view-list-of-clients">
-  <div class="delete-success-message" *ngIf="clientDeleted" [ngClass]="{'success': clientDeleted}">
-    Client supprimé avec succès.
-  </div>
-  
-  <div class="delete-refused-message" *ngIf="soldeDifferentOf0" [ngClass]="{'error': soldeDifferentOf0}">
-    Les comptes bancaires du client ne sont pas vides.
-  </div>
-    <li class="one-client-li" *ngFor="let client of clients">
-  
-      <div class="client-info">
-        <span class="label">Id :</span> {{ client.id }} <br>
-        <span class="label">Nom :</span> {{ client.lastname }} {{ client.firstname }} <br>
-        <span class="label">Adresse :</span> {{ client.address }}, {{ client.city }}, {{ client.zipcode }} <br>
-        <span class="label">Numéro :</span> {{ client.phoneNumber }}
-      </div>
-      
-      <div class="compte-list-client-grid">Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
-      
-      <div class="button-list-client-grid">
-        <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
-        <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
-      </div> 
-    </li>
+<div class="delete-success-message" *ngIf="clientDeleted" [ngClass]="{'success': clientDeleted}">
+  Client supprimé avec succès.
+</div>
+
+<div class="delete-refused-message" *ngIf="soldeDifferentOf0" [ngClass]="{'error': soldeDifferentOf0}">
+  Les comptes bancaires du client ne sont pas vides.
+</div>
+  <li class="one-client-li" *ngFor="let client of clients">
+
+    <div class="client-info">
+      <span class="label">Id :</span> {{ client.id }} <br>
+      <span class="label">Nom :</span> {{ client.lastname }} {{ client.firstname }} <br>
+      <span class="label">Adresse :</span> {{ client.address }}, {{ client.city }}, {{ client.zipcode }} <br>
+      <span class="label">Numéro :</span> {{ client.phoneNumber }}
+    </div>
+    
+    <div class="compte-list-client-grid">Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
+    
+    <div class="button-list-client-grid">
+      <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
+      <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
+    </div> 
+  </li>
 </section>
 
 <!-- Confirmation de suppression par modale -->
 <div class="confirmation-modal" *ngIf="showDeleteConfirmation">
-  <div class="modal-dialog">
-    <h3 class="modal-title">Confirmer la suppression</h3>
-    <div class="modal-body">
-      Êtes-vous sûr de vouloir supprimer ce client ?
-    </div>
-    <div class="modal-footer">
-      <button class="btn-secondary" (click)="cancelDelete()">Annuler</button>
-      <button class="btn-danger" (click)="confirmDeleteClient()">Supprimer</button>
-    </div>
+<div class="modal-dialog">
+  <h3 class="modal-title">Confirmer la suppression</h3>
+  <div class="modal-body">
+    Êtes-vous sûr de vouloir supprimer ce client ?
   </div>
+  <div class="modal-footer">
+    <button class="btn-secondary" (click)="cancelDelete()">Annuler</button>
+    <button class="btn-danger" (click)="confirmDeleteClient()">Supprimer</button>
+  </div>
+</div>
 </div>

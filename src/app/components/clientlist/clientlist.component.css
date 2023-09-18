@@ -1,239 +1,239 @@
 /* Styles de base de la navbar */
 .navbar button {
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  margin: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  text-transform: uppercase;
+background-color: transparent;
+color: #fff;
+border: none;
+margin: 5px;
+padding: 10px 20px;
+cursor: pointer;
+font-size: 16px;
+text-transform: uppercase;
 }
 
 /* Mise en forme de la section principale */
 #fonctionnalBar {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
-  grid-gap: 10px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+display: grid;
+grid-template-columns: 2fr 2fr 1fr;
+grid-gap: 10px;
+align-items: center;
+justify-content: center;
+margin-bottom: 10px;
 }
 
 .searchArea {
-  grid-column: 1;
-  display: flex;
-  background-color: #3498db;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  border-color: #03203d;
-  border-radius: 5px;
+grid-column: 1;
+display: flex;
+background-color: #3498db;
+height: 100%;
+align-items: center;
+justify-content: center;
+border-color: #03203d;
+border-radius: 5px;
 }
 
 label {
-  margin: 10px;
+margin: 10px;
 }
 
 label input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: auto;
+margin-right: auto;
 }
 
 .filter {
-  grid-column: 2;
-  display: flex;
-  background-color:  #3498db;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  border-color: #03203d;
-  border-radius: 5px;
+grid-column: 2;
+display: flex;
+background-color:  #3498db;
+height: 100%;
+align-items: center;
+justify-content: center;
+border-color: #03203d;
+border-radius: 5px;
 }
 
 .addClient {
-  grid-column: 3;
-  background-color:  #4CAF50;
-  border-radius: 5px;
-  width: 70%;
-  height: auto;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  text-transform: uppercase;
+grid-column: 3;
+background-color:  #4CAF50;
+border-radius: 5px;
+width: 70%;
+height: auto;
+color: #fff;
+text-align: center;
+padding: 10px;
+border: none;
+cursor: pointer;
+font-size: 16px;
+text-transform: uppercase;
 }
 
 .addClient :hover {
-  background-color: #000;
+background-color: #000;
 }
 
 .update-button {
-  background-color: #FF8C00; /* Orange */
-  border: none; /* Suppression de la bordure */
-  border-radius: 5px;
-  color: #fff;
-  width: 150px;
-  height: fit-content;
-  margin: 5px;
-  padding: 5px;
+background-color: #FF8C00; /* Orange */
+border: none; /* Suppression de la bordure */
+border-radius: 5px;
+color: #fff;
+width: 150px;
+height: fit-content;
+margin: 5px;
+padding: 5px;
 }
 
 .delete-button {
-  background-color: red;
-  border: none; /* Suppression de la bordure */
-  border-radius: 5px;
-  color: #fff;
-  width: 150px;
-  height: fit-content;
-  margin: 5px;
-  padding: 5px;
+background-color: red;
+border: none; /* Suppression de la bordure */
+border-radius: 5px;
+color: #fff;
+width: 150px;
+height: fit-content;
+margin: 5px;
+padding: 5px;
 }
 /* Mise en forme de la liste de clients */
 .view-list-of-clients {
-  grid-gap: 20px;
-  align-items: center;
-  justify-content: center;
+grid-gap: 20px;
+align-items: center;
+justify-content: center;
 }
 
 .one-client-li {
-  display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  border: 1px solid #03203d; 
-  border-radius: 10px;
-  height: auto;
-  grid-gap: 10px;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  margin: 10px;
+display: grid;
+grid-template-columns: 3fr 2fr 1fr;
+grid-template-rows: 1fr 1fr;
+border: 1px solid #03203d; 
+border-radius: 10px;
+height: auto;
+grid-gap: 10px;
+align-items: center;
+justify-content: center;
+padding: 10px;
+margin: 10px;
 }
 
 ul{
-  margin: 2px;
-  padding: none;
-  align-items: center;
-  justify-content: center;
+margin: 2px;
+padding: none;
+align-items: center;
+justify-content: center;
 ;
 }
 
 .compte-list-client-grid {
-  grid-column: 2;
-  grid-row: 1 / span 2; 
+grid-column: 2;
+grid-row: 1 / span 2; 
 }
 
 .compte-list-client-grid button {
-  background-color: #696FA7;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  width: 150px; /* Ajout de la largeur pour égaler les autres boutons */
-  height: fit-content;
-  margin: 5px;
-  padding: 5px;
+background-color: #696FA7;
+border: none;
+color: #fff;
+border-radius: 5px;
+width: 150px; /* Ajout de la largeur pour égaler les autres boutons */
+height: fit-content;
+margin: 5px;
+padding: 5px;
 }
 
 .client-info {
-  grid-column: 1;
-  grid-row: 1 / span 2; 
-  padding: 5px;
+grid-column: 1;
+grid-row: 1 / span 2; 
+padding: 5px;
 }
 
 .client-info .label {
-  font-weight: bold;
+font-weight: bold;
 }
 
 .button-list-client-grid {
-  grid-column: 3;
-  grid-row: 1 / span 2; 
+grid-column: 3;
+grid-row: 1 / span 2; 
 }
 
 
 /* Styles pour lister les clients*/
 .grid-liste-clients{
-    display: grid;
-    grid-template-rows: 50px 50px;
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-rows: 50px 50px;
+  grid-template-columns: 1fr;
 }
 
 .libelle-client{
-    display: grid;
-    grid-template-columns: repeat(10, 120px);
-    grid-template-rows: 15px;
-    grid-column: 1;
-    grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(10, 120px);
+  grid-template-rows: 15px;
+  grid-column: 1;
+  grid-row: 1;
 }
- /* Styles pour la confirmation de suppression */
- .confirmation-modal {
-  background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+/* Styles pour la confirmation de suppression */
+.confirmation-modal {
+background-color: rgba(0, 0, 0, 0.6);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
 }
 
 .modal-dialog {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+background-color: #fff;
+padding: 20px;
+border-radius: 4px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .modal-title {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+font-size: 1.2rem;
+margin-bottom: 10px;
 }
 
 .modal-body {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 .modal-footer {
-  display: flex;
-  justify-content: flex-end;
+display: flex;
+justify-content: flex-end;
 }
 
 .modal-footer button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+margin-left: 10px;
+padding: 5px 10px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 
 .modal-footer .btn-secondary {
-  background-color: #ccc;
-  color: #000;
+background-color: #ccc;
+color: #000;
 }
 
 .modal-footer .btn-danger {
-  background-color: #dc3545;
-  color: #fff;
+background-color: #dc3545;
+color: #fff;
 }
 
 .delete-success-message {
-  color: #00cc00; 
-  font-weight: bold;
-  grid-column: 1/4 ;
- 
+color: #00cc00; 
+font-weight: bold;
+grid-column: 1/4 ;
+
 }
 .delete-refused-message {
-  background-color: #ff5555;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  text-align: center;
-  grid-column: 1/4 ;
+background-color: #ff5555;
+color: white;
+padding: 10px;
+border-radius: 5px;
+margin-top: 10px;
+text-align: center;
+grid-column: 1/4 ;
 }

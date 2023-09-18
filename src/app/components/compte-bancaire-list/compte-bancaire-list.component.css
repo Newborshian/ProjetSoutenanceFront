@@ -1,42 +1,41 @@
 /* Styles pour la section button-bar-CB-list */
 .button-bar-CB-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; 
-    padding: 10px;
-    
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+  padding: 10px;
   
-  .button-bar-CB-list button {
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    margin: 5px; 
-  }
+}
 
-  /* Style pour le bouton "Retour" en bleu */
+.button-bar-CB-list button {
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 5px; 
+}
+
+/* Style pour le bouton "Retour" en bleu */
 .button-bar-CB-list .btn-back {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  /* Style pour les boutons "Ajouter un compte courant" et "Ajouter un compte épargne" en vert */
-  .button-bar-CB-list .btn-add{
-    background-color: #4CAF50;
-    color: #fff;
-  }
-  
-  /* Styles pour la liste de comptes bancaires */
-  .comptes-bancaires-list {
-    height: 20px; 
-    grid-gap: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-  }
-  
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Style pour les boutons "Ajouter un compte courant" et "Ajouter un compte épargne" en vert */
+.button-bar-CB-list .btn-add{
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+/* Styles pour la liste de comptes bancaires */
+.comptes-bancaires-list {
+  height: 20px; 
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}

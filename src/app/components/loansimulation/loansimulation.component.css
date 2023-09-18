@@ -1,71 +1,70 @@
 /* loan-simulator.component.css */
 
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-    text-align: center;
-  }
-  
-  h1 {
-    margin-top: 0;
-    color: #007bff; /* Couleur du titre */
-  }
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
 
-  form label {
-    display: block;
-    margin-top: 10px;
-    text-align: left;
-    font-weight: bold;
-  }
-  
-  form input {
-    width: 95%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transition de couleur au survol */
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Nouvelle couleur au survol */
-  }
-  
-  /* Style pour les résultats */
-  #result h2 {
-    color: #007bff;
-  }
-  
-  #result p {
-    margin: 10px 0;
-  }
-  
-  /* Style pour les chiffres résultants */
-  #totalAmount,
-  #monthlyPayment {
-    font-weight: bold;
-    color: #333;
-    font-size: 18px;
-  }
-  
-  /* Style pour les messages d'erreur */
-  .error-message {
-    color: red;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
+h1 {
+  margin-top: 0;
+  color: #007bff; /* Couleur du titre */
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+form input {
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transition de couleur au survol */
+}
+
+button:hover {
+  background-color: #0056b3; /* Nouvelle couleur au survol */
+}
+
+/* Style pour les résultats */
+#result h2 {
+  color: #007bff;
+}
+
+#result p {
+  margin: 10px 0;
+}
+
+/* Style pour les chiffres résultants */
+#totalAmount,
+#monthlyPayment {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Style pour les messages d'erreur */
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+}

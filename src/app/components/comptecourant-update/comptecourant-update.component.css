@@ -1,116 +1,116 @@
 form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #f5f5f5; 
-    padding: 20px;
-    border-radius: 10px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  .action-buttons button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f5f5f5; 
+  padding: 20px;
+  border-radius: 10px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.action-buttons button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
 .grid2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 16px;
-    width: 400px;
-    height: auto; /* Utilisation de la hauteur automatique pour s'adapter au contenu */
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Reste du CSS inchangé */
-  
-  .form-group {
-    background-color: #fff;
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
-  
-  .form-control {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .buttonupdate {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    grid-column: span 2; /* Le bouton s'étend sur 2 colonnes pour être au centre */
-    margin-top: 16px; /* Espacement entre le bouton et les champs */
-  }
-  
-  .buttonupdate:hover {
-    background-color: #0056b3;
-  }
-  .confirmation-modal {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  
-  .modal-dialog {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modal-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .modal-body {
-    margin-bottom: 20px;
-  }
-  
-  .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .modal-footer button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .modal-footer .btn-secondary {
-    background-color: #007bff;
-    color: #fff;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  width: 400px;
+  height: auto; /* Utilisation de la hauteur automatique pour s'adapter au contenu */
+  justify-content: center;
+  align-items: center;
+}
 
-  input {
-    color: #7a8a9d;
+/* Reste du CSS inchangé */
+
+.form-group {
+  background-color: #fff;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.form-control {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttonupdate {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  grid-column: span 2; /* Le bouton s'étend sur 2 colonnes pour être au centre */
+  margin-top: 16px; /* Espacement entre le bouton et les champs */
+}
+
+.buttonupdate:hover {
+  background-color: #0056b3;
+}
+.confirmation-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-dialog {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+input {
+  color: #7a8a9d;
 }

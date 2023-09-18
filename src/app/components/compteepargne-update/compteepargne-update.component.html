@@ -1,33 +1,33 @@
 <form [formGroup]="compteEpargneUptadeForm" class="grid2">
-    <div class="form-group">
-      <label for="tauxInteret">Taux d'interêt</label>
-      <input type="number" id="tauxInteret" formControlName="tauxInteret" placeholder="taux Interêt">
-    </div>
-    <div class="form-group">
-      <label for="solde">Solde</label>
-      <input type="number" id="solde" formControlName="solde" placeholder="Solde">
-    </div>
-    <button class="buttonupdate" (click)="updateCompte()">Mettre à jour</button>
-  </form>
+  <div class="form-group">
+    <label for="tauxInteret">Taux d'interêt</label>
+    <input type="number" id="tauxInteret" formControlName="tauxInteret" placeholder="taux Interêt">
+  </div>
+  <div class="form-group">
+    <label for="solde">Solde</label>
+    <input type="number" id="solde" formControlName="solde" placeholder="Solde">
+  </div>
+  <button class="buttonupdate" (click)="updateCompte()">Mettre à jour</button>
+</form>
 <!-- modale Update OK -->
 <div class="confirmation-modal" *ngIf="showConfirmationMessage">
-  <div class="modal-dialog">
-    <div class="modal-body">
-      Les informations ont bien été mise à jour
-    </div>
-    <div class="modal-footer">
-      <button class="btn-secondary" (click)="onBackButton()">suivant</button>
-    </div>
+<div class="modal-dialog">
+  <div class="modal-body">
+    Les informations ont bien été mise à jour
   </div>
+  <div class="modal-footer">
+    <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+  </div>
+</div>
 </div>
 <!-- modale Update fail -->
 <div class="confirmation-modal" *ngIf="showErrorMessage">
-  <div class="modal-dialog">
-    <div class="modal-body">
-     Un Problème est survenue lors de la mise à jour des informations 
-    </div>
-    <div class="modal-footer">
-      <button class="btn-secondary" (click)="onBackButton()">suivant</button>
-    </div>
+<div class="modal-dialog">
+  <div class="modal-body">
+    Un Problème est survenue lors de la mise à jour des informations 
   </div>
+  <div class="modal-footer">
+    <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+  </div>
+</div>
 </div>

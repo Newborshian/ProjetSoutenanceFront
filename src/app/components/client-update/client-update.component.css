@@ -1,145 +1,145 @@
 .form-card {
-    background-color:#D9D9D9;
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+background-color:#D9D9D9;
+max-width: 400px;
+margin: 0 auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+padding: 15px;
+border: 1px solid black;
+border-radius: 10px;
+background-color: white;
+}
+
+
+  .invalidInput{
+    color: red;
+  }
+
+          
+@keyframes shake {
+0%, 100% {
+  transform: translateX(0);
+}
+25% {
+  transform: translateX(5px);
+}
+50% {
+  transform: translateX(-5px);
+}
+75% {
+  transform: translateX(5px);
+}
+}
+
+input {
+          color: #7a8a9d;
+      }
+
+      /* Appliquer l'animation lorsque l'input est invalide */
+      input:invalid {
+          animation: shake 0.5s forwards;
+          color: red;
+
+      }
   
-    form {
-      padding: 15px;
-      border: 1px solid black;
-      border-radius: 10px;
-      background-color: white;
-    }
+  
+  .form-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
   
 
-    .invalidInput{
-      color: red;
-    }
+  .form-group {
+    margin-bottom: 15px;
+  }
   
-           /* Animation de secousse */
-           @keyframes shake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(5px);
-            }
-            50% {
-                transform: translateX(-5px);
-            }
-            75% {
-                transform: translateX(5px);
-            }
-        }
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
   
-        input {
-            color: #7a8a9d;
-        }
+  .form-group input,
+  .form-group textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
   
-        /* Appliquer l'animation lorsque l'input est invalide */
-        input:invalid {
-            animation: shake 0.5s forwards;
-            color: red;
+  .form-group textarea {
+    resize: vertical; 
+  }
+  
+  /* Style des boutons */
+  .action-buttons button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .action-buttons button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 
-        }
-    
-    
-    .form-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-    
-  
-    .form-group {
-      margin-bottom: 15px;
-    }
-    
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-      width: 80%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-    
-    .form-group textarea {
-      resize: vertical; 
-    }
-    
-    /* Style des boutons */
-    .action-buttons button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-    
-    .action-buttons button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-  
-    .form-error-message {
-      color: red;
-      font-weight: bold;
-    }
+  .form-error-message {
+    color: red;
+    font-weight: bold;
+  }
 
 /* Modale pour update et create */
 .confirmation-modal {
-  background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+background-color: rgba(0, 0, 0, 0.6);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
 }
 
 .modal-dialog {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+background-color: #fff;
+padding: 20px;
+border-radius: 4px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .modal-title {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+font-size: 1.2rem;
+margin-bottom: 10px;
 }
 
 .modal-body {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 .modal-footer {
-  display: flex;
-  justify-content: flex-end;
+display: flex;
+justify-content: flex-end;
 }
 
 .modal-footer button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+margin-left: 10px;
+padding: 5px 10px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 
 .modal-footer .btn-secondary {
-  background-color: #007bff;
-  color: #fff;
+background-color: #007bff;
+color: #fff;
 }

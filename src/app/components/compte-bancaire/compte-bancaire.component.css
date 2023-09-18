@@ -1,61 +1,60 @@
 /* Styles pour le composant gridcontenaire */
 .gridcontenaire {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: repeat(4, 1fr); /* Quatre colonnes de largeur égale */
-    border: 1px solid #03203d;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  /* Styles pour les titres (h4) et les données (h5) */
-  .gridcontenaire h4,
-  .gridcontenaire h5 {
-    margin: 4px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr); /* Quatre colonnes de largeur égale */
+  border: 1px solid #03203d;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
 
-  }
+/* Styles pour les titres (h4) et les données (h5) */
+.gridcontenaire h4,
+.gridcontenaire h5 {
+  margin: 4px;
 
-  .gridcontenaire h4{
-    font-weight: bold;
+}
+
+.gridcontenaire h4{
+  font-weight: bold;
 }
 
 .gridcontenaire h5{
-    font-weight: lighter;
+  font-weight: lighter;
 }
-  
-  /* Styles spécifiques pour chaque élément */
-  .numeroDeCompte {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  
-  .typeDeCompte {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  
-  .solde {
-    grid-column: 3;
-    grid-row: 2;
-  }
-  
+
+/* Styles spécifiques pour chaque élément */
+.numeroDeCompte {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.typeDeCompte {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.solde {
+  grid-column: 3;
+  grid-row: 2;
+}
+
 /* Styles spécifiques pour le bouton "Plus d'informations" */
 .buttoninfos {
-    grid-column: 4;
-    grid-row: 1 / span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    background-color:   #696FA7;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
-    justify-self: center;
-    margin: auto;
+  grid-column: 4;
+  grid-row: 1 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color:   #696FA7;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  justify-self: center;
+  margin: auto;
 }
-  

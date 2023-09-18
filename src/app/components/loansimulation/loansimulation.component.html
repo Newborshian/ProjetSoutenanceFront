@@ -1,24 +1,24 @@
 <div class="container">
-    <h1>Simulation de Crédit</h1>
-    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
-        <label for="loanAmount">Montant de l'emprunt (€)</label>
-        <input type="number" id="loanAmount" formControlName="loanAmount" required>
+<h1>Simulation de Crédit</h1>
+<form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <label for="loanAmount">Montant de l'emprunt (€)</label>
+    <input type="number" id="loanAmount" formControlName="loanAmount" required>
 
-        <label for="interestRate">Taux d'intérêt annuel (%)</label>
-        <input type="number" id="interestRate" formControlName="interestRate" required>
+    <label for="interestRate">Taux d'intérêt annuel (%)</label>
+    <input type="number" id="interestRate" formControlName="interestRate" required>
 
-        <label for="loanDuration">Durée du prêt (années)</label>
-        <input type="number" id="loanDuration" formControlName="loanDuration" required>
+    <label for="loanDuration">Durée du prêt (années)</label>
+    <input type="number" id="loanDuration" formControlName="loanDuration" required>
 
-        <label for="insuranceRate">Taux d'assurance annuel (%)</label>
-        <input type="number" id="insuranceRate" formControlName="insuranceRate" required>
+    <label for="insuranceRate">Taux d'assurance annuel (%)</label>
+    <input type="number" id="insuranceRate" formControlName="insuranceRate" required>
 
-        <button type="submit">Simuler</button>
-    </form>
+    <button type="submit">Simuler</button>
+</form>
 
-    <div id="result" [ngClass]="{'hidden': !showResult}">
-        <h2>Résultat de la simulation</h2>
-        <p>Montant total dû : <span id="totalAmount">{{ totalAmount }} €</span></p>
-        <p>Mensualité (y compris assurance) : <span id="monthlyPayment">{{ monthlyPayment }} €</span></p>
-    </div>
+<div id="result" [ngClass]="{'hidden': !showResult}">
+    <h2>Résultat de la simulation</h2>
+    <p>Montant total dû : <span id="totalAmount">{{ totalAmount }} €</span></p>
+    <p>Mensualité (y compris assurance) : <span id="monthlyPayment">{{ monthlyPayment }} €</span></p>
+</div>
 </div>

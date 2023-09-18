@@ -1,37 +1,37 @@
 <div class="action-buttons">
-  <button  type="back" (click)="onBackButton()">Retour</button>
+<button  type="back" (click)="onBackButton()">Retour</button>
 </div>
 <form [formGroup]="compteCourantUptadeForm" class="grid2">
-  <div class="form-group">
-    <label for="overDraft">Découvert autorisé</label>
-    <input type="number" id="overDraft" formControlName="overDraft" placeholder="Découvert">
-  </div>
-  <div class="form-group">
-    <label for="solde">Solde</label>
-    <input type="number" id="solde" formControlName="solde" placeholder="Solde">
-  </div>
-  <!-- Bouton pour soumettre le formulaire de mise à jour -->
-  <button class="buttonupdate" (click)="updateCompte()">Mettre à jour</button>
+<div class="form-group">
+  <label for="overDraft">Découvert autorisé</label>
+  <input type="number" id="overDraft" formControlName="overDraft" placeholder="Découvert">
+</div>
+<div class="form-group">
+  <label for="solde">Solde</label>
+  <input type="number" id="solde" formControlName="solde" placeholder="Solde">
+</div>
+<!-- Bouton pour soumettre le formulaire de mise à jour -->
+<button class="buttonupdate" (click)="updateCompte()">Mettre à jour</button>
 </form>
 <!-- modale Update OK -->
 <div class="confirmation-modal" *ngIf="showConfirmationMessage">
-  <div class="modal-dialog">
-    <div class="modal-body">
-      Les informations ont bien été mise à jour
-    </div>
-    <div class="modal-footer">
-      <button class="btn-secondary" (click)="onBackButton()">suivant</button>
-    </div>
+<div class="modal-dialog">
+  <div class="modal-body">
+    Les informations ont bien été mise à jour
   </div>
+  <div class="modal-footer">
+    <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+  </div>
+</div>
 </div>
 <!-- modale Update fail -->
 <div class="confirmation-modal" *ngIf="showErrorMessage">
-  <div class="modal-dialog">
-    <div class="modal-body">
-     Un Problème est survenue lors de la mise à jour des informations 
-    </div>
-    <div class="modal-footer">
-      <button class="btn-secondary" (click)="onBackButton()">suivant</button>
-    </div>
+<div class="modal-dialog">
+  <div class="modal-body">
+    Un Problème est survenue lors de la mise à jour des informations 
   </div>
+  <div class="modal-footer">
+    <button class="btn-secondary" (click)="onBackButton()">suivant</button>
+  </div>
+</div>
 </div>

@@ -8,41 +8,41 @@ import { ConseillerAuthentification } from 'src/app/dtos/conseillerAuthentificat
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+selector: 'app-login',
+templateUrl: './login.component.html',
+styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = this.formBuilder.group({
-    mail: ['', Validators.required],
-    password: ['', Validators.required]
-  });
-  public loginSucess: boolean | undefined;
+loginForm = this.formBuilder.group({
+  mail: ['', Validators.required],
+  password: ['', Validators.required]
+});
+public loginSucess: boolean | undefined;
 
-  constructor(private conseillerService: ConseillerService,
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private clientService: ClientService
-    ) { }
+constructor(private conseillerService: ConseillerService,
+  private formBuilder: FormBuilder,
+  private router: Router,
+  private clientService: ClientService
+  ) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
 
-  }
+}
 
-  login(conseillerForm: FormGroup) {
-    const conseillerAuth: Partial<ConseillerAuthentification> = conseillerForm.value;
-    this.conseillerService.login(conseillerAuth).subscribe(
-      (res) => {
-        this.loginSucess = true;
-        localStorage.setItem('login', 'true');
-        this.conseillerService.login(conseillerAuth);
-        this.router.navigate(['home']);
-      },
-      (error) => {
-        this.loginSucess = false;
-        console.error('Connexion non valide', error);
-      }
-    );
-  }
+login(conseillerForm: FormGroup) {
+  const conseillerAuth: Partial<ConseillerAuthentification> = conseillerForm.value;
+  this.conseillerService.login(conseillerAuth).subscribe(
+    (res) => {
+      this.loginSucess = true;
+      localStorage.setItem('login', 'true');
+      this.conseillerService.login(conseillerAuth);
+      this.router.navigate(['home']);
+    },
+    (error) => {
+      this.loginSucess = false;
+      console.error('Connexion non valide', error);
+    }
+  );
+}
 }  
