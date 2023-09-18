@@ -1,16 +1,43 @@
-.comptes-bancaires-list {
-    /* border: 1px solid #03203d; 
-    border-radius: 10px; */
-    height: 20px;
+/* Styles pour la section button-bar-CB-list */
+.button-bar-CB-list {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si l'espace est insuffisant */
+    justify-content: flex-start; /* Centre les boutons horizontalement */
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .button-bar-CB-list button {
+    background-color: #20B2AA;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 5px; /* Espacement uniforme autour des boutons */
+  }
+
+  /* Style pour le bouton "Retour" en bleu */
+.button-bar-CB-list .btn-back {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Style pour les boutons "Ajouter un compte courant" et "Ajouter un compte épargne" en vert */
+  .button-bar-CB-list .btn-add{
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  /* Styles pour la liste de comptes bancaires */
+  .comptes-bancaires-list {
+    height: 20px; /* Vous pouvez ajuster la hauteur selon vos besoins */
     grid-gap: 10px;
     align-items: center;
     justify-content: center;
     padding: 10px;
     margin: 10px;
-}
-
-.button-bar-CB-list button{
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
+  }
+  
