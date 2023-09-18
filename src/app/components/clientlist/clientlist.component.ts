@@ -61,9 +61,9 @@ export class ClientlistComponent implements OnInit {
   confirmDeleteClient() {
     console.log(this.clientToDelete!.id);
     
-    this.compteBancaireService.getCompteCourantById(this.clientToDelete!.id).subscribe((compteCourantSolde) => {
+    this.compteBancaireService.getCompteCourantById(this.clientToDelete!.id).subscribe((comptesClientSolde) => {
       this.compteBancaireService.getCompteEpargneById(this.clientToDelete!.id).subscribe((compteEpargneSolde) => {
-        if ((compteCourantSolde?.solde === 0 || compteCourantSolde?.solde === null) && 
+        if ((comptesClientSolde?.solde === 0 || comptesClientSolde?.solde === null) && 
             (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null)) {
           console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!.id)
           this.clientService.deleteClientById(this.clientToDelete.id).subscribe((data) => {
@@ -79,6 +79,34 @@ export class ClientlistComponent implements OnInit {
       })
     })
   }
+
+  confirmDeleteClient2() {
+    console.log(this.clientToDelete!.id);
+  
+    this.compteBancaireService.getComptesByIdClient(this.clientToDelete!.id).subscribe((comptesClientSolde) => {
+      // Vérifier si tous les comptes ont un solde de 0
+      const tousLesComptesOntSoldeZero = comptesClientSolde.every((compte) => compte.solde === 0);
+      const tousLesComptesOntUnSoldeNull = comptesClientSolde.length === 0;
+      
+  
+      if (tousLesComptesOntSoldeZero || tousLesComptesOntUnSoldeNull) {
+        console.log(">>>>>>>>>>>>>>>>> début de la suppression du client : " + this.clientToDelete!.id);
+        
+        // Supprimer le client
+        this.clientService.deleteClientById(this.clientToDelete!.id)
+          this.clientDeleted = true;
+          console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ");
+          
+        
+      } else {
+        console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
+        this.soldeDifferentOf0 = true;
+      }
+      
+      this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
+    });
+  }
+  
   cancelDelete() {
     this.showDeleteConfirmation = false;
   }
