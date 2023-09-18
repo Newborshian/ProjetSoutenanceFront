@@ -6,6 +6,8 @@ import { Client } from 'src/app/models/client.model';
 import { ClientService } from 'src/app/services/client.service';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConseillerService } from 'src/app/services/conseiller.service';
+import { Conseiller } from 'src/app/models/conseiller.model';
 
 
 @Component({
@@ -35,16 +37,11 @@ showErrorMessage = false;
     private router: Router,
     ) { }
 
-
 // Affillier l'id du conseiller actuel
 
   ngOnInit(): void {
-    this.newClientPreview$ = this.clientForm.valueChanges.pipe(
-      map(formValue => ({
-          ...formValue,
-      }))
-    );
-}
+   
+};
 
 onSubmitForm() {
 this.clientService.postClient(this.clientForm.value).subscribe(
@@ -52,7 +49,6 @@ this.clientService.postClient(this.clientForm.value).subscribe(
     // La requête a réussi, vous pouvez gérer la réponse ici
     console.log("Client enregistré avec succès !", response);
     this.showConfirmationMessage = true;
-  
   },
   (error) => {
     // La requête a échoué, vous pouvez gérer l'erreur ici

@@ -58,29 +58,8 @@ export class ClientlistComponent implements OnInit {
   onUpdateClient(clientId: number) {
     this.router.navigateByUrl(`updateClient/${clientId}`);
   }
+
   confirmDeleteClient() {
-    console.log(this.clientToDelete!);
-    
-    this.compteBancaireService.getCompteCourantById(this.clientToDelete!).subscribe((comptesClientSolde) => {
-      this.compteBancaireService.getCompteEpargneById(this.clientToDelete!).subscribe((compteEpargneSolde) => {
-        if ((comptesClientSolde?.solde === 0 || comptesClientSolde?.solde === null) && 
-            (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null)) {
-          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!)
-          this.clientService.deleteClientById(this.clientToDelete).subscribe((data) => {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
-          });
-
-          this.clientDeleted = true;
-        } else {
-          console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
-          this.soldeDifferentOf0 = true;
-        }
-        this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
-      })
-    })
-  }
-
-  confirmDeleteClient2() {
     console.log(this.clientToDelete!);
   
     this.compteBancaireService.getComptesByIdClient(this.clientToDelete!).subscribe((comptesClientSolde) => {

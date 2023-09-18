@@ -19,8 +19,6 @@ export class HomePageComponent implements OnInit{
       console.log(res);
       
       this.conseillerLogger = res;
-    })       
+    })
    }
-  
-   
 }
