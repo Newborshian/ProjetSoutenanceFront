@@ -18,11 +18,15 @@
 </section>
 
 <section class="view-list-of-clients">
+  <div class="delete-success-message" *ngIf="clientDeleted" [ngClass]="{'success': clientDeleted}">
+    Client supprimé avec succès.
+  </div>
+  
+  <div class="delete-refused-message" *ngIf="soldeDifferentOf0" [ngClass]="{'error': soldeDifferentOf0}">
+    Les comptes bancaires du client ne sont pas vides.
+  </div>
     <li class="one-client-li" *ngFor="let client of clients">
-      <!-- <div class="client-info"> Id : {{ client.id }} <br>{{ client.lastname }} {{ client.firstname }}
-        <br>Adresse : {{ client.address }}, {{ client.city }}, {{ client.zipcode }}<br> Numéro : {{ client.phoneNumber }} 
-      </div> -->
-
+  
       <div class="client-info">
         <span class="label">Id :</span> {{ client.id }} <br>
         <span class="label">Nom :</span> {{ client.lastname }} {{ client.firstname }} <br>
@@ -35,15 +39,7 @@
       <div class="button-list-client-grid">
         <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
         <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
-      </div>
-      <div class="delete-success-message" *ngIf="clientDeleted" [ngClass]="{'success': clientDeleted}">
-        Client supprimé avec succès.
-      </div>
-      
-      <div class="delete-refused-message" *ngIf="soldeDifferentOf0" [ngClass]="{'error': soldeDifferentOf0}">
-        Les comptes bancaires du client ne sont pas vides.
-      </div>
-      
+      </div> 
     </li>
 </section>
 
