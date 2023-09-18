@@ -60,7 +60,7 @@ label input {
   border-radius: 5px;
   width: 70%;
   height: auto;
-  color: #000;
+  color: #fff;
   text-align: center;
   padding: 10px;
   border: none;
@@ -74,25 +74,26 @@ label input {
 }
 
 .update-button {
-  background-color: #FDCC92;
+  background-color: #FF8C00; /* Orange */
+  border: none; /* Suppression de la bordure */
   border-radius: 5px;
-  color: black;
-  width: 150px;
-  height: fit-content ;
-  margin: 5px;
-  padding: 5px;
-}
-
-.delete-button {
-  background-color: red;
-  border-radius: 5px;
-  color: black;
+  color: #fff;
   width: 150px;
   height: fit-content;
   margin: 5px;
   padding: 5px;
 }
 
+.delete-button {
+  background-color: red;
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px;
+  color: #fff;
+  width: 150px;
+  height: fit-content;
+  margin: 5px;
+  padding: 5px;
+}
 /* Mise en forme de la liste de clients */
 .view-list-of-clients {
   grid-gap: 20px;
@@ -125,6 +126,17 @@ ul{
 .compte-list-client-grid {
   grid-column: 2;
   grid-row: 1 / span 2; 
+}
+
+.compte-list-client-grid button {
+  background-color: #696FA7;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  width: 150px; /* Ajout de la largeur pour égaler les autres boutons */
+  height: fit-content;
+  margin: 5px;
+  padding: 5px;
 }
 
 .client-info {
