@@ -37,6 +37,6 @@ export class CompteBancaireListComponent {
   }
 
   onBackButton() {
-    this.router.navigateByUrl('/navbar');
+    this.router.navigateByUrl('/listClient');
   }
 }

@@ -17,36 +17,24 @@
   <div><button class="addClient" [routerLink]="'add'" (click)="onAddNewClient()">Ajouter un nouveau client</button></div> 
 </section>
 
+<section class="view-list-of-clients">
   <ul>
     <li class="one-client-li" *ngFor="let client of clients">
-    <div class="grid-liste-clients">
-      <div class="libelle-client">
-        <h4 class="Libid">Identifiant</h4> 
-        <h4 class="Liblastname">Nom</h4>
-        <h4 class="Libfirstname">Prénom</h4>
-        <h4 class="Libaddress">Adresse</h4> 
-        <h4 class="Libcity">Ville</h4>
-        <h4 class="Libzipcode">Code Postal</h4>
-        <h4 class="LibphoneNumber">Numéro</h4>
+      <div class="client-info">{{ client.lastname }}, {{ client.firstname }}, Id : {{ client.id }} 
+        <br>Adresse {{ client.address }},{{ client.city }},{{ client.zipcode }}<br> Numéro{{ client.phoneNumber }} </div>
+      
+      <div class="compte-list-client-grid">Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
+      
+      <div class="button-list-client-grid">
+        <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
+        <button class="delete-button" (click)="deleteClient(client)">Supprimer le client</button>
       </div>
-      <article class="gridclient">
-      <div class="client-id">{{ client.id }}</div>
-      <div class="client-lastname">{{ client.lastname }}</div>
-      <div class="client-firstname">{{ client.firstname }}</div>
-      <div class="client-address">{{ client.address }}</div>
-      <div class="client-city">{{ client.city }}</div>
-      <div class="client-zipcode">{{ client.zipcode }}</div>
-      <div class="client-phoneNumber">{{ client.phoneNumber }}</div>
-      <div class="view-compte-button"><button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
-      <div class="update-button"><button (click)="onUpdateClient(client.id)">Modifier les informations du client</button></div>
-      <div class="delete-button"><button (click)="deleteClient(client)">Supprimer le client</button></div>
-    </article>
-    </div>
+
     </li>
     <div class="delete-success-message" *ngIf="clientDeleted">Client supprimé avec succès.</div>
     <div class="delete-refused-message" *ngIf="soldeDifferentOf0">Les comptes bancaires du client ne sont pas vides.</div>
   </ul>
-
+</section>
 
 <!-- Confirmation de suppression par modale -->
 <div class="confirmation-modal" *ngIf="showDeleteConfirmation">
