@@ -7,4 +7,5 @@ export interface Client {
     zipcode: number;
     phoneNumber: string;
     idConseiller: number;
+    
 }

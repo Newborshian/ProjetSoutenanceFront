@@ -30,8 +30,9 @@
         <span class="label">Numéro :</span> {{ client.phoneNumber }}
       </div>
       
-      <div class="compte-list-client-grid">Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
-      
+      <div class="compte-list-client-grid">
+        <div class="auditcomptes" [style.background-color]="getColorAuditCompte(client.id)"> </div>
+        Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
       <div class="button-list-client-grid">
         <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
         <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>

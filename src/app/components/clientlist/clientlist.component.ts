@@ -8,6 +8,9 @@ import { ClientService } from 'src/app/services/client.service';
 import { CompteBancaireService } from 'src/app/services/comptes-bancaires.service';
 import { ConseillerService } from 'src/app/services/conseiller.service';
 
+
+
+
 @Component({
   selector: 'app-clientlist',
   templateUrl: './clientlist.component.html',
@@ -22,6 +25,10 @@ export class ClientlistComponent implements OnInit {
   public clients: Client[] | null = null;
   public conseiller: Conseiller | null = null;
   showDeleteConfirmation: boolean = false;
+  public ListeComptes!: CompteBancaire[];
+
+  auditColors: { [clientId: number]: string } = {};
+  
 
 
   clientToDelete!: number;
@@ -44,7 +51,17 @@ export class ClientlistComponent implements OnInit {
         console.log(this.clients);
       })
     });
-  }
+
+    
+
+    
+     
+  
+     
+    }
+
+    
+  
 
   deleteClient(clientId: number) {
     this.clientToDelete = clientId;
@@ -107,4 +124,32 @@ export class ClientlistComponent implements OnInit {
   onViewCompteClient(clientId: number){
     this.router.navigateByUrl(`comptesbancaires/${clientId}`);
   }
+
+  
+
+  getColorAuditCompte(clientId: number): string {
+
+    this.compteBancaireService.getComptesByIdClient(clientId).subscribe((comptes: CompteBancaire[]) => {
+      this.ListeComptes = comptes;
+    })
+
+    let soldeTotal = 0;
+    
+    // Parcourir la liste des comptes et additionner les soldes
+    this.ListeComptes.forEach(compte => {
+      soldeTotal += compte.solde;
+    });
+    
+    if (soldeTotal > 10000) {
+      return 'blue'
+    } else if (soldeTotal < 10000 && soldeTotal >= 1000){
+      return 'green'
+    } else if (soldeTotal < 1000 ){
+      return 'red'
+    }else {
+      return 'grey'
+    }
+  }
+
+
 }
