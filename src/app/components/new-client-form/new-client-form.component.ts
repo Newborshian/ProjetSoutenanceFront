@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, map } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'src/app/models/client.model';
 import { ClientService } from 'src/app/services/client.service';
 
@@ -31,6 +31,7 @@ showErrorMessage = false;
 
   constructor(private formBuilder: FormBuilder,
     private clientService: ClientService,
+    private route: ActivatedRoute,
     private router: Router,
     ) { }
 

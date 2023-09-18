@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="action-buttons">
+    <button  type="back" (click)="onBackButton()">Retour</button>
+</div>
     <h2>Créer un nouveau compte courant</h2>
     <form [formGroup]="compteCourantCreateForm" (ngSubmit)="addCompteCourant(compteCourantCreateForm)">
       <div class="form-group">
