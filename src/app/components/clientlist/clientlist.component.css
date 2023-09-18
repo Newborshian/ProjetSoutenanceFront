@@ -129,6 +129,11 @@ ul{
 .client-info {
   grid-column: 1;
   grid-row: 1 / span 2; 
+  padding: 5px;
+}
+
+.client-info .label {
+  font-weight: bold;
 }
 
 .button-list-client-grid {

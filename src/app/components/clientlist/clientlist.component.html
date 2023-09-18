@@ -20,8 +20,16 @@
 <section class="view-list-of-clients">
   <ul>
     <li class="one-client-li" *ngFor="let client of clients">
-      <div class="client-info">{{ client.lastname }}, {{ client.firstname }}, Id : {{ client.id }} 
-        <br>Adresse {{ client.address }},{{ client.city }},{{ client.zipcode }}<br> Numéro{{ client.phoneNumber }} </div>
+      <!-- <div class="client-info"> Id : {{ client.id }} <br>{{ client.lastname }} {{ client.firstname }}
+        <br>Adresse : {{ client.address }}, {{ client.city }}, {{ client.zipcode }}<br> Numéro : {{ client.phoneNumber }} 
+      </div> -->
+
+      <div class="client-info">
+        <span class="label">Id :</span> {{ client.id }} <br>
+        <span class="label">Nom :</span> {{ client.lastname }} {{ client.firstname }} <br>
+        <span class="label">Adresse :</span> {{ client.address }}, {{ client.city }}, {{ client.zipcode }} <br>
+        <span class="label">Numéro :</span> {{ client.phoneNumber }}
+      </div>
       
       <div class="compte-list-client-grid">Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
       

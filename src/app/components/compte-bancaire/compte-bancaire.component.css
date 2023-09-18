@@ -1,6 +1,6 @@
 .grid1{
     display: grid;
-    grid-template-rows: 1fr 20px 20px 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
 }
 
@@ -9,14 +9,14 @@
     grid-template-columns: repeat(6, 150px);
     grid-template-rows: 15px;
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 1;
 }
 .gridarticle{
     display: grid;
     grid-template-columns: repeat(9, 150px);
     grid-template-rows: 1px;
     grid-column: 1;
-    grid-row: 4;
+    grid-row: 2;
 }
 
 .numeroDeCompte{
