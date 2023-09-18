@@ -1,22 +1,11 @@
-.grid1{
+.gridcontenaire{
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-}
-
-.libelle{
-    display: grid;
-    grid-template-columns: repeat(6, 150px);
-    grid-template-rows: 15px;
-    grid-column: 1;
-    grid-row: 1;
-}
-.gridarticle{
-    display: grid;
-    grid-template-columns: repeat(9, 150px);
-    grid-template-rows: 1px;
-    grid-column: 1;
-    grid-row: 2;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 1px solid #03203d; 
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
 }
 
 .numeroDeCompte{
@@ -33,16 +22,20 @@
     grid-column: 3;
     grid-row: 2;
 }
-.buttonmaj{
+/* .buttonmaj{
     grid-column: 5;
     grid-row: 2;
-}
-.buttondelete{
+} */
+/* .buttondelete{
     grid-column: 6;
     grid-row: 2;
-}
+} */
 
-.buttoninfos{
-    grid-column: 4;
-    grid-row: 2;
-}
+.buttoninfos {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    grid-row: 1/3;
+  }

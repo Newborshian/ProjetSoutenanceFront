@@ -1,14 +1,12 @@
-<div class="grid1">
-    <div class="libelle">
+<div class="gridcontenaire">
+    <!-- ligne1 -->
             <h4 class="LibnumeroDeCompte">Numero de compte</h4> 
             <h4 class="LibtypeDeCompte">Type de compte</h4>
             <h4 class="Libsolde">Solde</h4>
-    </div>
-    <article class="gridarticle">
+    <!-- ligne2 -->
         <h5 class="numeroDeCompte">{{compteBancaire.numerodecompte}}</h5> 
         <h5 class="typeDeCompte">{{compteBancaire.typeDeCompte}}</h5>
         <h5 class="solde">{{compteBancaire.solde}}</h5>
         <button class="buttoninfos" (click)="viewMoreInfos()">Plus d'informations</button>
-    </article>
 </div>
 

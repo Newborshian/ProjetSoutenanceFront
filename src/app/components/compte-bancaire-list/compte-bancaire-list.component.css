@@ -1,0 +1,16 @@
+.comptes-bancaires-list {
+    /* border: 1px solid #03203d; 
+    border-radius: 10px; */
+    height: auto;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.button-bar-CB-list button{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}

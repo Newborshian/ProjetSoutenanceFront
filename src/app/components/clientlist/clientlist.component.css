@@ -95,12 +95,9 @@ label input {
 
 /* Mise en forme de la liste de clients */
 .view-list-of-clients {
-  border: 1px solid #ddd;
-  border-radius: 10px;
   grid-gap: 20px;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
 }
 
 .one-client-li {
@@ -114,7 +111,7 @@ label input {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  margin: 20px;
+  margin: 10px;
 }
 
 ul{
