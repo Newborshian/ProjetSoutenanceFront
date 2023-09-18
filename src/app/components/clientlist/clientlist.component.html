@@ -18,18 +18,33 @@
 </section>
 
 <section class="view-list-of-clients">
-  <ul>
     <li class="one-client-li" *ngFor="let client of clients">
-      <div class="client-info">{{ client.lastname }}, {{ client.firstname }}, <br>Id : {{ client.id }} <br>Ville :{{ client.city }} </div>
-      <div>Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
-      <div>
-        <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
-        <button class="delete-button" (click)="deleteClient(client)">Supprimer le client</button>
+      <!-- <div class="client-info"> Id : {{ client.id }} <br>{{ client.lastname }} {{ client.firstname }}
+        <br>Adresse : {{ client.address }}, {{ client.city }}, {{ client.zipcode }}<br> Numéro : {{ client.phoneNumber }} 
+      </div> -->
+
+      <div class="client-info">
+        <span class="label">Id :</span> {{ client.id }} <br>
+        <span class="label">Nom :</span> {{ client.lastname }} {{ client.firstname }} <br>
+        <span class="label">Adresse :</span> {{ client.address }}, {{ client.city }}, {{ client.zipcode }} <br>
+        <span class="label">Numéro :</span> {{ client.phoneNumber }}
       </div>
+      
+      <div class="compte-list-client-grid">Comptes bancaires <button (click)="onViewCompteClient(client.id)">Voir les comptes</button></div>
+      
+      <div class="button-list-client-grid">
+        <button class="update-button" (click)="onUpdateClient(client.id)">Modifier le client</button>
+        <button class="delete-button" (click)="deleteClient(client.id)">Supprimer le client</button>
+      </div>
+      <div class="delete-success-message" *ngIf="clientDeleted" [ngClass]="{'success': clientDeleted}">
+        Client supprimé avec succès.
+      </div>
+      
+      <div class="delete-refused-message" *ngIf="soldeDifferentOf0" [ngClass]="{'error': soldeDifferentOf0}">
+        Les comptes bancaires du client ne sont pas vides.
+      </div>
+      
     </li>
-    <div class="delete-success-message" *ngIf="clientDeleted">Client supprimé avec succès.</div>
-    <div class="delete-refused-message" *ngIf="soldeDifferentOf0">Les comptes bancaires du client ne sont pas vides.</div>
-  </ul>
 </section>
 
 <!-- Confirmation de suppression par modale -->

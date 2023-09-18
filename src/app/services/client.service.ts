@@ -39,8 +39,8 @@ postClient(client : Client) : Observable<Client[]> {
     return this.http.get<Client>(`http://localhost:8080/client/${clientId}`);
   }
 
-  deleteClientById(clientId: Client): Observable<Client> {
-    
-    return this.http.delete<Client>('http://localhost:8080/client/' + clientId.id);
+  deleteClientById(clientId: number): Observable<number> {
+    console.log(clientId)
+    return this.http.delete<number>(`http://localhost:8080/client/${clientId}`);
   }
 }

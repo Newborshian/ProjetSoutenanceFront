@@ -1,5 +1,11 @@
 <header class="header">
     <div class="header-title">PROXIBANQUE</div>
     <button *ngIf="isLoggedIn" class="logout-button" (click)="logout()">Déconnexion</button>
-  </header>
+</header>
+
+<div *ngIf="isLoggedIn" class="navbar">
+  <button routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >Accueil</button>
+  <button routerLink="listClient" routerLinkActive="active" >Liste des Clients</button>
+  <button routerLink="loansimulation" routerLinkActive="active"> Simulation de prêt</button>
+</div>
   

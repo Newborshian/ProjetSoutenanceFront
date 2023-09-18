@@ -24,7 +24,7 @@ export class ClientlistComponent implements OnInit {
   showDeleteConfirmation: boolean = false;
 
 
-  clientToDelete!: Client;
+  clientToDelete!: number;
 
   constructor(private conseillerService: ConseillerService
     , private clientService: ClientService,
@@ -46,8 +46,8 @@ export class ClientlistComponent implements OnInit {
     });
   }
 
-  deleteClient(client: Client) {
-    this.clientToDelete = client;
+  deleteClient(clientId: number) {
+    this.clientToDelete = clientId;
     this.showDeleteConfirmation = true;
   }
   
@@ -58,27 +58,36 @@ export class ClientlistComponent implements OnInit {
   onUpdateClient(clientId: number) {
     this.router.navigateByUrl(`updateClient/${clientId}`);
   }
-  confirmDeleteClient() {
-    console.log(this.clientToDelete!.id);
-    
-    this.compteBancaireService.getCompteCourantById(this.clientToDelete!.id).subscribe((compteCourantSolde) => {
-      this.compteBancaireService.getCompteEpargneById(this.clientToDelete!.id).subscribe((compteEpargneSolde) => {
-        if ((compteCourantSolde?.solde === 0 || compteCourantSolde?.solde === null) && 
-            (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null)) {
-          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!.id)
-          this.clientService.deleteClientById(this.clientToDelete).subscribe((data) => {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
-          });
 
+  confirmDeleteClient() {
+    console.log(this.clientToDelete!);
+  
+    this.compteBancaireService.getComptesByIdClient(this.clientToDelete!).subscribe((comptesClientSolde) => {
+      // Vérifier si tous les comptes ont un solde de 0
+      const tousLesComptesOntSoldeZero = comptesClientSolde.every((compte) => compte.solde === 0);
+      const tousLesComptesOntUnSoldeNull = comptesClientSolde.length === 0;
+      
+  
+      if (tousLesComptesOntSoldeZero || tousLesComptesOntUnSoldeNull) {
+        console.log(">>>>>>>>>>>>>>>>> début de la suppression du client : " + this.clientToDelete!)
+        
+        // Supprimer le client
+        this.clientService.deleteClientById(this.clientToDelete!).subscribe((res) => {
+          console.log("OK c'est passé")
+        });
           this.clientDeleted = true;
-        } else {
-          console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
-          this.soldeDifferentOf0 = true;
-        }
-        this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
-      })
-    })
+          console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ");
+          
+        
+      } else {
+        console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
+        this.soldeDifferentOf0 = true;
+      }
+      
+      this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
+    });
   }
+  
   cancelDelete() {
     this.showDeleteConfirmation = false;
   }

@@ -31,4 +31,27 @@
   .logout-button:hover {
     background-color: #d32f2f; /* Rouge plus foncé au survol */
   }
+
+  .navbar {
+    background-color: #03203d; 
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .navbar button {
+    background-color: transparent; 
+    color: #fff; 
+    border: none; 
+    margin: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    text-transform: uppercase;
+  }
+ 
+  .active {
+    color: #666;
+    text-decoration: underline;
+  }
   

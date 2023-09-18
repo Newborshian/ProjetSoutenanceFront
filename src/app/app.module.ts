@@ -12,7 +12,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewClientFormComponent } from './components/new-client-form/new-client-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -32,11 +31,11 @@ import { NewcomptecourantComponent } from './components/newcomptecourant/newcomp
 import { NewcompteepargneComponent } from './components/newcompteepargne/newcompteepargne.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent,
     NewClientFormComponent,
     HeaderComponent,
     LoansimulationComponent,
@@ -52,6 +51,7 @@ import { NewcompteepargneComponent } from './components/newcompteepargne/newcomp
     CompteepargneUpdateComponent,
     NewcomptecourantComponent,
     NewcompteepargneComponent,
+
   
   ],
   imports: [

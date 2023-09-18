@@ -1,20 +1,33 @@
-<div class="grid1" *ngIf="compteBancaire$ | async as compteBancaire">
-    <div class="libelle">
+<div class="gridcontenaire" *ngIf="compteBancaire$ | async as compteBancaire">
+    <!-- ligne1 -->
             <h4 class="LibnumeroDeCompte">Numero de Compte</h4> 
             <h4 class="LibnameClient">Nom du client</h4>
             <h4 class="LibtypeDeCompte">Type de Compte</h4>
-            <h4 class="LiboverDraft">Découvert autorisé</h4>
             <h4 class="LibtauxInteret">Taux d'interêt</h4>
             <h4 class="Libsolde">Solde</h4>
-    </div>
-    <article class="gridarticle">
+  <!-- liste2 -->
         <h5 class="numeroDeCompte">{{compteBancaire.numerodecompte}}</h5> 
         <h5 class="nameClient">{{compteBancaire.nameClient}}</h5>
         <h5 class="typeDeCompte">{{compteBancaire.typeDeCompte}}</h5>
-        <h5 class="overDraft">{{compteBancaire.overDraft}}</h5>
         <h5 class="tauxInteret">{{compteBancaire.tauxInteret}}</h5>
         <h5 class="solde">{{compteBancaire.solde}}</h5>
-        <button class="buttonmaj" (click)=" onUpdateCompteEpargne(compteBancaire.id)">Mettre à jour les informations</button>
-        <button class="buttondelete" (click)="onClickButtonDeleteCompte(compteBancaire.id,compteBancaire.solde)">Supprimer le compte</button>
-    </article>
+        <button class="buttonmaj" (click)="onUpdateCompteEpargne(compteBancaire.id)">Mettre à jour les informations</button>
+      <button class="buttondelete" (click)="deleteCompte(compteBancaire)">Supprimer le compte</button>
+
+    <div class="delete-success-message" *ngIf="compteDeleted">Compte supprimé avec succès.</div>
+    <div class="delete-refused-message" *ngIf="soldeDifferentOf0">Le compte bancaire n'est pas vide.</div>
 </div>
+
+  <!-- Confirmation de suppression -->
+  <div class="confirmation-modal" *ngIf="showDeleteConfirmation">
+    <div class="modal-dialog">
+      <h3 class="modal-title">Confirmer la suppression</h3>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer ce compte ?
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" (click)="cancelDelete()">Annuler</button>
+        <button class="btn-danger" (click)="confirmDeleteCompte()">Supprimer</button>
+      </div>
+    </div>
+  </div>

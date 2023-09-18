@@ -24,11 +24,21 @@
   }
   
   .form-control {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+
+     /* Style des boutons */
+     .action-buttons button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
   
   .btn-primary {
     background-color: #007bff;

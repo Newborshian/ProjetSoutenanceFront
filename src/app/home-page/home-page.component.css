@@ -2,3 +2,18 @@ h1{
     text-align: center;
     margin-top: 20px;
 }
+.welcome {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    margin-top: 20px; 
+  }
+  
+  .welcome div {
+    margin-bottom: 10px; 
+  }
+
+  img{
+    height: 60vh;
+  }

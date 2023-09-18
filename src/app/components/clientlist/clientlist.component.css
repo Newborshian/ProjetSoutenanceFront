@@ -17,12 +17,13 @@
   grid-gap: 10px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .searchArea {
   grid-column: 1;
   display: flex;
-  background-color: yellow;
+  background-color: #3498db;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -45,7 +46,7 @@ label input {
 .filter {
   grid-column: 2;
   display: flex;
-  background-color: aquamarine;
+  background-color:  #3498db;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -55,7 +56,8 @@ label input {
 
 .addClient {
   grid-column: 3;
-  background-color: #4caf50;
+  background-color:  #4CAF50;
+  border-radius: 5px;
   width: 70%;
   height: auto;
   color: #fff;
@@ -67,68 +69,108 @@ label input {
   text-transform: uppercase;
 }
 
-.update-button {
-  background-color: #FDCC92;
-  color: black;
-  width: 150px;
-  height: fit-content ;
-  margin: 5px;
-  padding: 5px;
+.addClient :hover {
+  background-color: #000;
 }
 
-.delete-button {
-  background-color: red;
-  color: black;
+.update-button {
+  background-color: #FF8C00; /* Orange */
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px;
+  color: #fff;
   width: 150px;
   height: fit-content;
   margin: 5px;
   padding: 5px;
 }
 
-/* Mise en forme des éléments de la liste de clients */
+.delete-button {
+  background-color: red;
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px;
+  color: #fff;
+  width: 150px;
+  height: fit-content;
+  margin: 5px;
+  padding: 5px;
+}
+/* Mise en forme de la liste de clients */
+.view-list-of-clients {
+  grid-gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
 .one-client-li {
   display: grid;
-  grid-template-columns: 2fr 3fr 1fr;
+  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid #03203d; 
   border-radius: 10px;
   height: auto;
-  border-color: #03203d;
-  border: 1px solid black;
   grid-gap: 10px;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  margin: 20px;
+  margin: 10px;
 }
 
-/* Mise en forme de la liste de clients */
-.view-list-of-clients {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  grid-gap: 20px;
+ul{
+  margin: 2px;
+  padding: none;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+;
 }
 
-/* Styles des messages de suppression */
-.delete-success-message {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
+.compte-list-client-grid {
+  grid-column: 2;
+  grid-row: 1 / span 2; 
+}
+
+.compte-list-client-grid button {
+  background-color: #696FA7;
+  border: none;
+  color: #fff;
   border-radius: 5px;
-  margin-top: 10px;
+  width: 150px; /* Ajout de la largeur pour égaler les autres boutons */
+  height: fit-content;
+  margin: 5px;
+  padding: 5px;
 }
 
-.delete-refused-message {
-  background-color: #ff5555F5;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
+.client-info {
+  grid-column: 1;
+  grid-row: 1 / span 2; 
+  padding: 5px;
 }
 
-/* Styles pour la confirmation de suppression */
-.confirmation-modal {
+.client-info .label {
+  font-weight: bold;
+}
+
+.button-list-client-grid {
+  grid-column: 3;
+  grid-row: 1 / span 2; 
+}
+
+
+/* Styles pour lister les clients*/
+.grid-liste-clients{
+    display: grid;
+    grid-template-rows: 50px 50px;
+    grid-template-columns: 1fr;
+}
+
+.libelle-client{
+    display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-template-rows: 15px;
+    grid-column: 1;
+    grid-row: 1;
+}
+ /* Styles pour la confirmation de suppression */
+ .confirmation-modal {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -178,4 +220,20 @@ label input {
 .modal-footer .btn-danger {
   background-color: #dc3545;
   color: #fff;
+}
+
+.delete-success-message {
+  color: #00cc00; 
+  font-weight: bold;
+  grid-column: 1/4 ;
+ 
+}
+.delete-refused-message {
+  background-color: #ff5555;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  grid-column: 1/4 ;
 }

@@ -59,7 +59,7 @@ export class CompteepargneUpdateComponent implements OnInit{
     }
   }
   onBackButton(){
-    this.router.navigate(['navbar'])
+    this.router.navigate(['listClient'])
   }
 }
 

@@ -23,6 +23,15 @@ export class ViewMoreCompteEpargneComponent implements OnInit{
     solde: ['', Validators.required],
   });
 
+  showDeleteConfirmation: boolean = false;
+
+  compteToDelete!: CompteBancaire;
+
+  public compteDeleted = false;
+
+  public soldeDifferentOf0 = false;
+
+
   constructor(private compteBancaireService: CompteBancaireService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder){}
 
   numeroDeCompte!: string
@@ -60,4 +69,36 @@ export class ViewMoreCompteEpargneComponent implements OnInit{
     
     this.router.navigateByUrl(`compteepargneupdate/${compteBancaireId}`);
   }
+
+  deleteCompte(compte: CompteBancaire) {
+    this.compteToDelete = compte;
+    this.showDeleteConfirmation = true;
+  }
+
+  confirmDeleteCompte() {
+   
+    // Vérifiez ici si les comptes bancaires du client sont vides, sinon, affichez un message d'erreur
+    // Si les comptes sont vides, supprimez le client
+    this.compteBancaireService.getCompteEpargneById(this.compteToDelete!.id).subscribe((compteEpargneSolde) => {
+       
+        if (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null) 
+             {
+          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.compteToDelete!.id)
+          this.compteBancaireService.deleteCompteEpargne(this.compteToDelete.id).subscribe((data) => {
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
+          });
+
+          this.compteDeleted = true;
+        } else {
+          console.error("Le solde des comptes du client doit être égal à 0 avant de pouvoir être supprimé");
+          this.soldeDifferentOf0 = true;
+        }
+        this.showDeleteConfirmation = false; // Masquer la boîte de dialogue après la suppression
+      })
+    }
+      
+
+      cancelDelete() {
+        this.showDeleteConfirmation = false;
+      }
 }
