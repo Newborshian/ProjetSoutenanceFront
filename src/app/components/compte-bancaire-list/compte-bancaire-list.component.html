@@ -1,5 +1,7 @@
-<button (click)="onBackButton()">Retour</button>
-<button class="buttonadd" (click)="onFormAddCompteCourant()">Ajouter un compte courant</button>
-<button class="buttonadd" (click)="onFormAddCompteEpargne()">Ajouter un compte épargne</button>
+<button class="btn-back" (click)="onBackButton()">Retour</button>
+<button class="btn-add" (click)="onFormAddCompteCourant()">Ajouter un compte courant</button>
+<button class="btn-add" (click)="onFormAddCompteEpargne()">Ajouter un compte épargne</button>
 
-<app-compte-bancaire *ngFor="let comptebancaire of comptesBancaires$ | async" [compteBancaire]="comptebancaire"></app-compte-bancaire>
+<div class="comptes-bancaires-list">
+  <app-compte-bancaire *ngFor="let comptebancaire of comptesBancaires$ | async" [compteBancaire]="comptebancaire"></app-compte-bancaire>
+</div>

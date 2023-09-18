@@ -23,7 +23,7 @@
 .searchArea {
   grid-column: 1;
   display: flex;
-  background-color: lightgoldenrodyellow;
+  background-color: #3498db;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@ label input {
 .filter {
   grid-column: 2;
   display: flex;
-  background-color: aquamarine;
+  background-color:  #3498db;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -56,17 +56,21 @@ label input {
 
 .addClient {
   grid-column: 3;
-  background-color: #4caf50;
+  background-color:  #4CAF50;
   border-radius: 5px;
   width: 70%;
   height: auto;
-  color: #fff;
+  color: #000;
   text-align: center;
   padding: 10px;
   border: none;
   cursor: pointer;
   font-size: 16px;
   text-transform: uppercase;
+}
+
+.addClient :hover {
+  background-color: #000;
 }
 
 .update-button {
