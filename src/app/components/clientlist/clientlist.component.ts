@@ -24,7 +24,7 @@ export class ClientlistComponent implements OnInit {
   showDeleteConfirmation: boolean = false;
 
 
-  clientToDelete!: Client;
+  clientToDelete!: number;
 
   constructor(private conseillerService: ConseillerService
     , private clientService: ClientService,
@@ -46,8 +46,8 @@ export class ClientlistComponent implements OnInit {
     });
   }
 
-  deleteClient(client: Client) {
-    this.clientToDelete = client;
+  deleteClient(clientId: number) {
+    this.clientToDelete = clientId;
     this.showDeleteConfirmation = true;
   }
   
@@ -59,14 +59,14 @@ export class ClientlistComponent implements OnInit {
     this.router.navigateByUrl(`updateClient/${clientId}`);
   }
   confirmDeleteClient() {
-    console.log(this.clientToDelete!.id);
+    console.log(this.clientToDelete!);
     
-    this.compteBancaireService.getCompteCourantById(this.clientToDelete!.id).subscribe((comptesClientSolde) => {
-      this.compteBancaireService.getCompteEpargneById(this.clientToDelete!.id).subscribe((compteEpargneSolde) => {
+    this.compteBancaireService.getCompteCourantById(this.clientToDelete!).subscribe((comptesClientSolde) => {
+      this.compteBancaireService.getCompteEpargneById(this.clientToDelete!).subscribe((compteEpargneSolde) => {
         if ((comptesClientSolde?.solde === 0 || comptesClientSolde?.solde === null) && 
             (compteEpargneSolde?.solde === 0 || compteEpargneSolde?.solde === null)) {
-          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!.id)
-          this.clientService.deleteClientById(this.clientToDelete.id).subscribe((data) => {
+          console.log(">>>>>>>>>>>>>>>>> debut du delete :" + this.clientToDelete!)
+          this.clientService.deleteClientById(this.clientToDelete).subscribe((data) => {
             console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ")
           });
 
@@ -81,19 +81,21 @@ export class ClientlistComponent implements OnInit {
   }
 
   confirmDeleteClient2() {
-    console.log(this.clientToDelete!.id);
+    console.log(this.clientToDelete!);
   
-    this.compteBancaireService.getComptesByIdClient(this.clientToDelete!.id).subscribe((comptesClientSolde) => {
+    this.compteBancaireService.getComptesByIdClient(this.clientToDelete!).subscribe((comptesClientSolde) => {
       // Vérifier si tous les comptes ont un solde de 0
       const tousLesComptesOntSoldeZero = comptesClientSolde.every((compte) => compte.solde === 0);
       const tousLesComptesOntUnSoldeNull = comptesClientSolde.length === 0;
       
   
       if (tousLesComptesOntSoldeZero || tousLesComptesOntUnSoldeNull) {
-        console.log(">>>>>>>>>>>>>>>>> début de la suppression du client : " + this.clientToDelete!.id);
+        console.log(">>>>>>>>>>>>>>>>> début de la suppression du client : " + this.clientToDelete!)
         
         // Supprimer le client
-        this.clientService.deleteClientById(this.clientToDelete!.id)
+        this.clientService.deleteClientById(this.clientToDelete!).subscribe((res) => {
+          console.log("OK c'est passé")
+        });
           this.clientDeleted = true;
           console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> Client supprimé ");
           
