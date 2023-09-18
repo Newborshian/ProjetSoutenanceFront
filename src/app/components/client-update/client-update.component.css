@@ -37,14 +37,14 @@
         }
   
         input {
-            color: lightgrey;
+            color: #7a8a9d;
         }
   
         /* Appliquer l'animation lorsque l'input est invalide */
         input:invalid {
             animation: shake 0.5s forwards;
             color: red;
-  
+
         }
     
     

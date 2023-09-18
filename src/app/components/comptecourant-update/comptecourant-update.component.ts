@@ -41,7 +41,9 @@ export class ComptecourantUpdateComponent implements OnInit{
         numeroDeCompte: compteBancaire.numerodecompte,
         typeDeCompte: compteBancaire.typeDeCompte,
         nameClient: compteBancaire.nameClient,
-        tauxInteret: compteBancaire.tauxInteret
+        tauxInteret: compteBancaire.tauxInteret,
+        solde : compteBancaire.solde,
+        overDraft : compteBancaire.overDraft,
       });
     });      
   }
