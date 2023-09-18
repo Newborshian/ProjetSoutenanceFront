@@ -1,24 +1,25 @@
-.grid1{
-    display: grid;
-    grid-template-rows: 1fr 20px 20px 4fr 1fr;
-    grid-template-columns: 1fr;
+.gridcontenaire{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  border: 1px solid #03203d; 
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
 }
 
-.libelle{
-    display: grid;
-    grid-template-columns: repeat(6, 150px);
-    grid-template-rows: 15px;
-    grid-column: 1;
-    grid-row: 3;
-}
-.gridarticle{
-    display: grid;
-    grid-template-columns: repeat(9, 150px);
-    grid-template-rows: 1px;
-    grid-column: 1;
-    grid-row: 4;
+.gridcontenaire h4,
+.gridcontenaire h5 {
+  margin: 4px;
 }
 
+.gridcontenaire h4{
+    font-weight: bold;
+}
+
+.gridcontenaire h5{
+    font-weight: lighter;
+}
 .numeroDeCompte{
     grid-column: 1;
     grid-row: 2;
@@ -36,21 +37,34 @@
     grid-column: 4;
     grid-row: 2;
 }
-.tauxInteret{
+
+.solde{
     grid-column: 5;
     grid-row: 2;
 }
-.solde{
-    grid-column: 6;
-    grid-row: 2;
-}
 .buttonmaj{
-    grid-column: 7;
-    grid-row: 2;
+  grid-column: 6;
+  grid-row: 1;
+  background-color: #FF8C00; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 5px; 
+  cursor: pointer; 
+  margin: 3px; 
+  width: 150px;
 }
 .buttondelete{
-    grid-column: 8;
-    grid-row: 2;
+  grid-column: 6;
+  grid-row: 2;
+  background-color: red;
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 5px; 
+  cursor: pointer; 
+  margin: 3px; 
+  width: 150px; 
 }
 
 
