@@ -17,12 +17,13 @@
   grid-gap: 10px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .searchArea {
   grid-column: 1;
   display: flex;
-  background-color: yellow;
+  background-color: lightgoldenrodyellow;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -56,6 +57,7 @@ label input {
 .addClient {
   grid-column: 3;
   background-color: #4caf50;
+  border-radius: 5px;
   width: 70%;
   height: auto;
   color: #fff;
@@ -67,14 +69,9 @@ label input {
   text-transform: uppercase;
 }
 
-
-
-
-
-
-
 .update-button {
   background-color: #FDCC92;
+  border-radius: 5px;
   color: black;
   width: 150px;
   height: fit-content ;
@@ -84,6 +81,7 @@ label input {
 
 .delete-button {
   background-color: red;
+  border-radius: 5px;
   color: black;
   width: 150px;
   height: fit-content;
@@ -106,6 +104,7 @@ label input {
   grid-template-columns: 3fr 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   border: 1px solid #03203d; 
+  border-radius: 10px;
   height: auto;
   grid-gap: 10px;
   align-items: center;
@@ -114,10 +113,17 @@ label input {
   margin: 20px;
 }
 
+ul{
+  margin: 2px;
+  padding: none;
+  align-items: center;
+  justify-content: center;
+;
+}
+
 .compte-list-client-grid {
   grid-column: 2;
   grid-row: 1 / span 2; 
-  background-color: #4caf50;
 }
 
 .client-info {
@@ -132,12 +138,10 @@ label input {
 
 
 /* Styles pour lister les clients*/
-
 .grid-liste-clients{
     display: grid;
     grid-template-rows: 50px 50px;
     grid-template-columns: 1fr;
-
 }
 
 .libelle-client{
